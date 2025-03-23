@@ -1,16 +1,16 @@
-# Web Services & Applications Project - Cosy Covers
+# Web Services & Applications Project - Game Vault
 
 This repository contains code and resources related to a project carried out for the Web Services & Applications module. 
 
 ## Project Overview: 
 
-**Cosy Covers** is a personal library management system that allows users to manage their own collection of books. Built with Flask, this project aims to provide a foundation for creating, reading, updating, and reading book records, along with search functionality. Future enhancements may include user authentication, book reviews, ratings, and external API integrations. 
+**Game Vault** is a personal gaming catalogue where you can manage your collection of games. It lets you add games, update their details, delete entries, and search/filter by playform, genre, or play status. All going well, we will extende with features like reviews and ratings. 
 
 ## Features: 
 
-- **CRUD Operations:** Add, view, update, and delete books from your library. 
-- **Search:** Filter books by title, author, or genre. 
-- **User Authentication (Maybe??):** Allow multiple users to manage their personal libraries 
+- **CRUD Operations:** Add, view, update, and delete game entries.  
+- **Search:** Filter games by title, platform, or genre. 
+- **User Authentication (Maybe??):** Allow multiple users to manage their own game catalogues.  
 
 ## Prerequisities/How to Run: 
 Before running the code, ensure you have the following (update as we go on):
