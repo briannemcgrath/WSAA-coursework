@@ -22,11 +22,24 @@ Before running the code, ensure you have the following (update as we go on):
 To install the necessary dependencies, create a virutal environment and use the following command in bash: 
 `pip install -r requirements.txt`
 
+## API Endpoints
+The following endpoints are available for managing your game catalogue: 
+
+- **GET /games**
+    Retrieve a list of all game entries. 
+- **GET /games/<id>**
+    Retrieve details for a specific game by it's ID. 
+- **POST /games**
+    Creates a new game entry.
+
 ## Next Steps: 
 
 ## Known Issues: 
 
 ## References: 
+
+- Flask Documentation - https://flask.palletsprojects.com/en/stable/
+- Flask/SQLAlchemy Documentation - https://flask-sqlalchemy.palletsprojects.com/en/stable/
 
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 
