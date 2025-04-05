@@ -13,6 +13,7 @@ header {
     text-align: center;
 }
 
+
 nav a {
     color: #fff;
     text-decoration: none;
@@ -36,4 +37,44 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.game-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.game-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.2s, ease-in-out;
+}
+
+.game-card: :hover {
+    transform: scale(1.05)
+}
+
+.game-card h4 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+}
+
+.game-card p {
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.game-card a {
+    text-decoration: none;
+    color: #FFC0CB;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
 }

@@ -24,6 +24,22 @@
         <h2>Welcome to Cosy Console!</h2>
         <blockquote> "Your personal haven for all things gaming! Here you can relax, discover, and manage your game collection with ease. Grab a comfy seat, unwind, and let's play!" </blockquote>
         <!-- placeholder for future dynamic content (e.g., list of games?)-->
+        <!---catalogue overview section-->
+        <section id="catalogue-overview">
+            <h3>Catalogue Overview</h3>
+            <div class="game-grid">
+                {% for game in games %}
+                <div class="game-card">
+                    <h4>{{game.title}}</h4>
+                    <p><stong>Platform:</stong> {{game.platform}} </p>
+                    <p><stong>Genre:</stong> {{game.genre}} </p>
+                    <a href="/game/{{game.id}}">View Details</a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+       
+        </div>
         <div id="game-list">
             <!-- AJAX calls or server-sided rendering later?-->
         </div>

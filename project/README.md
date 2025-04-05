@@ -44,6 +44,9 @@ The following endpoints are available for managing your game catalogue:
 - CSS Templates (Gaming) - https://www.toocss.com/free-gaming-website-templates/ 
 - CSS Cascasing Style Sheets - https://developer.mozilla.org/en-US/docs/Web/CSS
 - HTML Support - https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content
+- Cards in CSS - https://www.w3schools.com/howto/howto_css_cards.asp 
+- Flexboxes - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox
+- CSS Grid Layouts https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout
 
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 

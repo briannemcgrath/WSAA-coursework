@@ -35,7 +35,8 @@ class Game(db.Model):
 #home route renders a static homepage
 @app.route('/')
 def home():
-    return render_template('index.html')
+    games = Game.query.all()
+    return render_template('index.html', games=games)
 
 @app.route('/game/<int:game_id>')
 def game_detail_view(game_id):
