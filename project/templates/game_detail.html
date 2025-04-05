@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"
+    <title>{{game.title}} - Details</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    <header>
+        <h1>{{game.title}}</h1>
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/games">Catalogue</a> |
+            <a href="/game/new">Add Game</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Game Details</h2>
+        <p><strong>Platform:</strong> {{game.platform}}</p>
+        <p><strong>Genre:</strong> {{game.genre}}</p>
+        <p><strong>Staus:</strong> {{game.status}}</p>
+        <p><strong>Description:</strong> {{game.description}}</p>
+        <p><strong>Rating:</strong> {{game.rating}}</p>
+        <!-- link to the form for editing the game-->
+        <a href="/game/edit/{{game.id}}">Edit Game</a>
+    </main>
+    <footer>
+        <p>&copy; 2025 Cosy Console. All rights reserved.</p>
+    </footer>
+</body>
+</html>

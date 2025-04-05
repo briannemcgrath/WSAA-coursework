@@ -37,6 +37,13 @@ class Game(db.Model):
 def home():
     return render_template('index.html')
 
+@app.route('/game/<int:game_id>')
+def game_detail_view(game_id):
+    #get game from database; 404 if not found
+    game = Game.query.get_or_404(game_id)
+    #render the game_detail.html template, passing the game data
+    return render_template('game_detail.html', game=game)
+
 # --------------------------------
 # RESTFUL API Endpoints for Game
 # --------------------------------
