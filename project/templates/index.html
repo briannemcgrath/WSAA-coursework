@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"
+    <title>Game Vault - Home</title>
+    <!-- link to the external CSS file for basic styling-->
+     <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+     <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}">
+</head>
+<body>
+    <header>
+        <!-- main header for the homepage-->
+         <h1>Game Vault</h1>
+         <nav>
+            <!-- navigation links (will update as more pages are added)--> 
+             <a href="/">Home</a> |
+             <a href="/games">Catalogue</a> |
+             <a href="/game/new">Add Game</a>
+         </nav>
+    </header>
+
+    <main> 
+        <!-- welcome section on the homepage-->
+        <h2>Welcome to Game Vault!</h2>
+        <p> Your personal Gaming Catalogue to track your collection across all platforms! Manage your progress, rate your completed games and share with friends!</p>
+        <!-- placeholder for future dynamic content (e.g., list of games?)-->
+        <div id="game-list">
+            <!-- AJAX calls or server-sided rendering later?-->
+        </div>
+    </main>
+
+    <footer>
+        <!-- footer with basic copyright information?-->
+        <p>&copy; 2025 Game Vault. All rights reserved.</p>
+    </footer>
+</body>
+</html>

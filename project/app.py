@@ -35,7 +35,7 @@ class Game(db.Model):
 #home route renders a static homepage
 @app.route('/')
 def home():
-    return render_template('base.html')
+    return render_template('index.html')
 
 # --------------------------------
 # RESTFUL API Endpoints for Game

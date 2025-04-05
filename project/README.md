@@ -40,6 +40,10 @@ The following endpoints are available for managing your game catalogue:
 
 - Flask Documentation - https://flask.palletsprojects.com/en/stable/
 - Flask/SQLAlchemy Documentation - https://flask-sqlalchemy.palletsprojects.com/en/stable/
+- CSS Templates - https://www.w3schools.com/w3css/w3css_templates.asp 
+- CSS Templates (Gaming) - https://www.toocss.com/free-gaming-website-templates/ 
+- CSS Cascasing Style Sheets - https://developer.mozilla.org/en-US/docs/Web/CSS
+- HTML Support - https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content
 
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 
