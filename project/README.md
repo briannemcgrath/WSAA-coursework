@@ -1,10 +1,10 @@
-# Web Services & Applications Project - Game Vault
+# Web Services & Applications Project - Cosy Console 
 
 This repository contains code and resources related to a project carried out for the Web Services & Applications module. 
 
 ## Project Overview: 
 
-**Game Vault** is a personal gaming catalogue where you can manage your collection of games. It lets you add games, update their details, delete entries, and search/filter by playform, genre, or play status. All going well, we will extende with features like reviews and ratings. 
+**Cosy Console** is a personal gaming catalogue where you can manage your collection of games. It lets you add games, update their details, delete entries, and search/filter by playform, genre, or play status. All going well, we will extende with features like reviews and ratings. 
 
 ## Features: 
 
