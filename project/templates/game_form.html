@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {% if game %} Edit Game{% else %} Add New Game{% endif %} </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    <header>
+        <h1>Cosy Console</h1>
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/games">Catalogue</a> |
+        </nav>
+    </header>
+    <main> 
+        <h2>{% if game %} Edit Game{% else %} Add New Game{% endif %}</h2>
+        <form id="gameForm" method="post" action="{% if game %}/games/{{ game.id }}{% else %}/games{% endif %}">
+            <!-- title field-->
+            <label for="title"> Title:</label>
+            <input type="text" id="title" name="title" value="{% if game %}{{game.title}}{% endif %}" required>
+            <br>
+            <!-- platform field-->
+            <label for="platform"> Platform:</label>
+            <input type="text" id="platform" name="platform" value="{% if game %}{{game.title}}{% endif %}">
+            <br>
+            <!-- genre field-->
+            <label for="genre"> Genre:</label>
+            <input type="text" id="genre" name="genre" value="{% if game %}{{game.title}}{% endif %}">
+            <br>
+            <!-- status field-->
+            <label for="title"> Status:</label>
+            <input type="text" id="status" name="status" value="{% if game %}{{game.title}}{% endif %}">
+            <br>
+            <!-- description field-->
+            <label for="description"> Description:</label>
+            <textarea id="description" name="description">{% if game %}{{ game.description }}{% endif %}</textarea>
+            <br>
+            <!-- rating field-->
+            <label for="rating"> Rating:</label>
+            <input type="number" id="rating" name="rating" step="1"  value="{% if game %}{{game.title}}{% endif %}">
+            <br>
+
+            <!-- submit button-->
+            <button type="submit">{% if game %} Update Game {% else %} Add Game {% endif %}</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 Cosy Console. All rights reserved.</p>
+    </footer>   
+</body>
+</html>

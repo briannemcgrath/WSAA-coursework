@@ -32,7 +32,9 @@ class Game(db.Model):
             'rating': self.rating
         }
 
-#home route renders a static homepage
+#---------------------------------------
+#Template-rendering Routes (HTML Pages)
+#---------------------------------------
 @app.route('/')
 def home():
     games = Game.query.all()
@@ -45,6 +47,15 @@ def game_detail_view(game_id):
     #render the game_detail.html template, passing the game data
     return render_template('game_detail.html', game=game)
 
+@app.route('/game/new', methods=['GET'])
+def new_game_form():
+    return render_template('game_form.html')
+
+@app.route('/game/edit/<int:game_id>', methods=['GET'])
+def edit_game_form(game_id):
+    game = Game.query.get_or_404(game_id)
+    return render_template('game_form.html', game=game)
+
 # --------------------------------
 # RESTFUL API Endpoints for Game
 # --------------------------------
@@ -55,7 +66,7 @@ def get_games():
     games = Game.query.all()
     return jsonify([game.to_dict() for game in games])
 
-#GET /games/<id>: get details for a specific game
+#GET /games/<id>: get details for a specific game 
 @app.route('/games/<int:game_id>', methods=['GET'])
 def get_game(game_id):
     game = Game.query.get_or_400(game_id)
@@ -64,23 +75,22 @@ def get_game(game_id):
 #POST /games: create new game entry 
 @app.route('/games', methods=['POST'])
 def create_game():
-    data = request.get_json()
     new_game = Game(
-        title=data.get('title'), 
-        platform=data.get('platform'), 
-        genre=data.get('genre'), 
-        status=data.get('status'), 
-        description=data.get('description'),
-        rating=data.get('rating')
+        title=request.form.get('title'), 
+        platform=request.form.get('platform'), 
+        genre=request.form.get('genre'), 
+        status=request.form.get('status'), 
+        description=request.form.get('description'),
+        rating=request.form.get('rating')
     )
     db.session.add(new_game)
     db.session.commit()
     return jsonify(new_game.to_dict()), 201
 
 #PUT /games/<id>: update an existing game
-@app.route('/games/<int:game_id>', methods=['PUT'])
+@app.route('/games/<int:game_id>', methods=['POST'])
 def update_game(game_id):
-    game = Game.query.get_or_400(game_id)
+    game = Game.query.get_or_404(game_id)
     data = request.get_json()
 
     #update only the fields provided in request
