@@ -57,7 +57,7 @@ footer {
     transition: transform 0.2s, ease-in-out;
 }
 
-.game-card: :hover {
+.game-card :hover {
     transform: scale(1.05)
 }
 

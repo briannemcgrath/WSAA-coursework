@@ -47,6 +47,8 @@ The following endpoints are available for managing your game catalogue:
 - Cards in CSS - https://www.w3schools.com/howto/howto_css_cards.asp 
 - Flexboxes - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox
 - CSS Grid Layouts https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout
+- JavaScript Fetch API - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch 
+- JavaScript Fetch API https://www.freecodecamp.org/news/how-to-fetch-data-from-an-api-using-the-fetch-api-in-javascript/
 
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 
