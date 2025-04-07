@@ -49,6 +49,7 @@ The following endpoints are available for managing your game catalogue:
 - CSS Grid Layouts https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout
 - JavaScript Fetch API - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch 
 - JavaScript Fetch API https://www.freecodecamp.org/news/how-to-fetch-data-from-an-api-using-the-fetch-api-in-javascript/
+- 'Fetch API Introduction' - https://www.youtube.com/watch?v=Oive66jrwBs 
 
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 

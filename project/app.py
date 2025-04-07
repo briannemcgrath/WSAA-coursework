@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify 
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -49,7 +49,7 @@ def game_detail_view(game_id):
 
 @app.route('/game/new', methods=['GET'])
 def new_game_form():
-    return render_template('game_form.html')
+    return render_template('game_form.html', game=None) 
 
 @app.route('/game/edit/<int:game_id>', methods=['GET'])
 def edit_game_form(game_id):
@@ -69,7 +69,7 @@ def get_games():
 #GET /games/<id>: get details for a specific game 
 @app.route('/games/<int:game_id>', methods=['GET'])
 def get_game(game_id):
-    game = Game.query.get_or_400(game_id)
+    game = Game.query.get_or_404(game_id)
     return jsonify(game.to_dict())
 
 #POST /games: create new game entry 
@@ -85,27 +85,26 @@ def create_game():
     )
     db.session.add(new_game)
     db.session.commit()
-    return jsonify(new_game.to_dict()), 201
+    return redirect(url_for('home'))
 
-#PUT /games/<id>: update an existing game
+#POST /games/<id>: update an existing game
 @app.route('/games/<int:game_id>', methods=['POST'])
 def update_game(game_id):
     game = Game.query.get_or_404(game_id)
-    data = request.get_json()
-
-    #update only the fields provided in request
-    if 'title' in data: 
-        game.title = data['title']
-    if 'platform' in data:
-        game.platform = data['platform']
-    if 'genre' in data: 
-        game.genre = data['genre']
-    if 'status' in data: 
-        game.status = data['status']
-    if 'description' in data: 
-        game.description = data['description']
-    if 'rating' in data: 
-        game.rating = data['rating']
+    
+    #update only the fields provided in the form
+    if request.form.get('title'):
+        game.title = request.form.get('title')
+    if request.form.get('platform'):
+        game.platform = request.form.get('platform')
+    if request.form.get('genre'):
+        game.genre = request.form.get('genre')
+    if request.form.get('status'):
+        game.status = request.form.get('status')
+    if request.form.get('description'):
+        game.description = request.form.get('description')
+    if request.form.get('rating'):
+        game.rating = request.form.get('rating')
     
     db.session.commit()
     return jsonify(game.to_dict())
@@ -113,7 +112,7 @@ def update_game(game_id):
 #DELETE /games/<id>: remove a game from catalogue
 @app.route('/games/<int:game_id>', methods=['DELETE'])
 def delete_game(game_id):
-    game = Game.query.get_or_400(game_id)
+    game = Game.query.get_or_404(game_id)
     db.session.delete(game)
     db.session.commit()
     return jsonify({'message': 'Game deleted successfully!'})
