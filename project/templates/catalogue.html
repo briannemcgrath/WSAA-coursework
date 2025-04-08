@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cosy Catalogue</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}">
+</head>
+<body>
+    <header>
+        <h1>Cosy Console</h1>
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/game/new">Add Game</a>
+        </nav>
+    </header>
+    <main>
+        <h2> Game Catalogue </h2>
+        <!-- filter input-->
+         <input type="text" id="searchInput" placeholder="Filter games by title.." style="margin-bottom: 10px; padding: 5px; width: 100%;"
+        <!-- display the catalogue as a table-->
+        <table class="catalogue-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Platform</th>
+                    <th>Genre</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for game in games %}
+                <tr>
+                    <td>{{game.title}}</td>
+                    <td>{{game.platform}}</td>
+                    <td>{{game.genre}}</td>
+                    <td>{{game.status}}</td>
+                    <td> <a href="/game/{{game.id}}">View Details</a> </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5">No games found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <!-- footer with basic copyright information?-->
+        <p>&copy; 2025 Cosy Console. All rights reserved.</p>
+    </footer>
+</body>
+</html>

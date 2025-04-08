@@ -50,6 +50,9 @@ The following endpoints are available for managing your game catalogue:
 - JavaScript Fetch API - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch 
 - JavaScript Fetch API https://www.freecodecamp.org/news/how-to-fetch-data-from-an-api-using-the-fetch-api-in-javascript/
 - 'Fetch API Introduction' - https://www.youtube.com/watch?v=Oive66jrwBs 
+- Tables in HTML - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table 
+- Box Shadows - https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow 
+- HTML Tables - https://www.w3schools.com/html/html_tables.asp
 
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 

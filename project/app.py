@@ -56,6 +56,11 @@ def edit_game_form(game_id):
     game = Game.query.get_or_404(game_id)
     return render_template('game_form.html', game=game)
 
+@app.route('/catalogue')
+def catalogue():
+    games = Game.query.all()
+    return render_template('catalogue.html', games=games)
+
 # --------------------------------
 # RESTFUL API Endpoints for Game
 # --------------------------------
@@ -107,7 +112,7 @@ def update_game(game_id):
         game.rating = request.form.get('rating')
     
     db.session.commit()
-    return jsonify(game.to_dict())
+    return redirect(url_for('home'))
 
 #DELETE /games/<id>: remove a game from catalogue
 @app.route('/games/<int:game_id>', methods=['DELETE'])
