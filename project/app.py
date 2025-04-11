@@ -37,7 +37,7 @@ class Game(db.Model):
 #---------------------------------------
 @app.route('/')
 def home():
-    games = Game.query.all()
+    games = Game.query.limit(4).all()
     return render_template('index.html', games=games)
 
 @app.route('/game/<int:game_id>')

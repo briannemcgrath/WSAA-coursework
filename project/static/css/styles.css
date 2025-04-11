@@ -106,3 +106,30 @@ footer {
 .catalogue-table a:hover {
     text-decoration: underline;
 }
+
+.search-form (
+    margin: 20px 0;
+    text-align: center;
+)
+
+.search-form input[type="text"] {
+    padding: 5px;
+    font-size: 1em;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    font-size: 1em;
+    border: none;
+    background-color: #FFC0CB;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #333333;
+}

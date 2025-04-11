@@ -14,7 +14,7 @@
          <nav>
             <!-- navigation links (will update as more pages are added)--> 
              <a href="/">Home</a> |
-             <a href="/catalogue">Catalogue</a> |
+             <a href="/catalogue">Catalogue - All Games</a> |
              <a href="/game/new">Add Game</a>
          </nav>
     </header>
@@ -59,8 +59,8 @@
                 const gamegrid = document.querySelector('.game-grid');
                 // clear existing content
                 gamegrid.innerHTML = '';
-                // loop through each game in the response and create a game card
-                data.forEach(game => {
+                // limit the game array for the first 4 items - to have neater homepage 
+                data.slice(0,4).forEach(game => {
                     const card = document.createElement('div');
                     card.classList.add('game-card');
                     // set inner HTML of card
