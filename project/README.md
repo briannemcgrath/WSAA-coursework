@@ -53,7 +53,9 @@ The following endpoints are available for managing your game catalogue:
 - Tables in HTML - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table 
 - Box Shadows - https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow 
 - HTML Tables - https://www.w3schools.com/html/html_tables.asp
-
+- Incoming Request Data Flask - https://flask.palletsprojects.com/en/stable/api/#incoming-request-data 
+- URLSearchParams - https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams  
+- Query String in Flask Routes - https://stackoverflow.com/questions/11774265/how-do-you-access-the-query-string-in-flask-routes 
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 
 

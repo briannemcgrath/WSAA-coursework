@@ -58,7 +58,24 @@ def edit_game_form(game_id):
 
 @app.route('/catalogue')
 def catalogue():
-    games = Game.query.all()
+
+    #get query parameters for filtering
+    platform = request.args.get('platform', None)
+    genre = request.args.get('genre', None)
+    status = request.args.get('status', None)
+
+    #starting with all games
+    query = Game.query
+
+    #filtering
+    if platform: 
+        query = query.filter(Game.platform.ilike(f"%{platform}%"))
+    if genre: 
+        query = query.filter(Game.genre.ilike(f"%{genre}%"))
+    if status: 
+        query = query.filter(Game.status.ilike(f"%{status}%"))
+
+    games = query.all()
     return render_template('catalogue.html', games=games)
 
 # --------------------------------

@@ -16,6 +16,14 @@
     </header>
     <main>
         <h2> Game Catalogue </h2>
+        <!--search form for filtering games-->
+        <form class="search-form" method="get" action="/catalogue">
+            <input type="text" name="platform" placeholder="Platform" value="{{request.args.get('platform', '')}}">
+            <input type="text" name="genre" placeholder="Genre" value="{{request.args.get('genre', '')}}">
+            <input type="text" name="status" placeholder="Status" value="{{request.args.get('status', '')}}">
+            <button type="submit">Search</button>
+        </form>
+
         <!--display the catalogue as a table-->
         <table class="catalogue-table">
             <thead>
