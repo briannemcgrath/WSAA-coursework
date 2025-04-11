@@ -22,15 +22,38 @@
             <br>
             <!-- platform field-->
             <label for="platform"> Platform:</label>
-            <input type="text" id="platform" name="platform" value="{% if game %}{{game.platform}}{% endif %}">
+            <select id="platform" name="platform" required>
+                <option value="">--Select Platform--</option>
+                <option value="PS5" {% if game and game.platform == "PS5" %}selected{% endif %}>PS5</option>
+                <option value="XBOX" {% if game and game.platform == "XBOX" %}selected{% endif %}>XBOX</option>
+                <option value="PC" {% if game and game.platform == "PC" %}selected{% endif %}>PC</option>
+                <option value="Nintendo Switch" {% if game and game.platform == "Nintendo Switch" %}selected{% endif %}>Nintendo Switch</option>
+                <option value="OTHER" {% if game and game.platform == "OTHER" %}selected{% endif %}>OTHER</option>
+            </select>
             <br>
             <!-- genre field-->
             <label for="genre"> Genre:</label>
-            <input type="text" id="genre" name="genre" value="{% if game %}{{game.genre}}{% endif %}">
+            <select id="genre" name="genre" required>
+                <option value="">--Select Genre--</option>
+                <option value="RPG" {% if game and game.genre == "RPG" %}selected{% endif %}>RPG</option>
+                <option value="Action" {% if game and game.genre == "Action" %}selected{% endif %}>Action</option>
+                <option value="Adventure" {% if game and game.genre == "Adventure" %}selected{% endif %}>Adventure</option>
+                <option value="Simulation" {% if game and game.genre == "Simulation" %}selected{% endif %}>Simulation</option>
+                <option value="Strategy" {% if game and game.genre == "Strategy" %}selected{% endif %}>Strategy</option>
+                <option value="PVP" {% if game and game.genre == "PVP" %}selected{% endif %}>PVP</option>
+                <option value="Shooter" {% if game and game.genre == "Shooter" %}selected{% endif %}>Shooter</option>
+                <option value="Racing" {% if game and game.genre == "Racing" %}selected{% endif %}>Racing</option>
+                <option value="OTHER" {% if game and game.genre == "OTHER" %}selected{% endif %}>OTHER</option>
+            </select>
             <br>
             <!-- status field-->
             <label for="status"> Status:</label>
-            <input type="text" id="status" name="status" value="{% if game %}{{game.status}}{% endif %}">
+            <select id="status" name="status" required>
+                <option value="">--Select Status--</option>
+                <option value="Not Started" {% if game and game.genre == "Not Started" %}selected{% endif %}>Not Started</option>
+                <option value="In Progress" {% if game and game.genre == "In Progress" %}selected{% endif %}>In Progress</option>
+                <option value="Complete" {% if game and game.genre == "Complete" %}selected{% endif %}>Complete</option>
+            </select>
             <br>
             <!-- description field-->
             <label for="description"> Description:</label>

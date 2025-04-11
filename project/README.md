@@ -56,6 +56,8 @@ The following endpoints are available for managing your game catalogue:
 - Incoming Request Data Flask - https://flask.palletsprojects.com/en/stable/api/#incoming-request-data 
 - URLSearchParams - https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams  
 - Query String in Flask Routes - https://stackoverflow.com/questions/11774265/how-do-you-access-the-query-string-in-flask-routes 
+- HTML Select Element - https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/select 
+- HTML Select Element - https://www.w3schools.com/TAgs/tag_select.asp 
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 
 
