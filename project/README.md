@@ -58,6 +58,10 @@ The following endpoints are available for managing your game catalogue:
 - Query String in Flask Routes - https://stackoverflow.com/questions/11774265/how-do-you-access-the-query-string-in-flask-routes 
 - HTML Select Element - https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/select 
 - HTML Select Element - https://www.w3schools.com/TAgs/tag_select.asp 
+- Web Forms - https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms 
+- CSS Flexbox - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+- CSS Transitions - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions
+- Dynamically Deleting Rows on Javascript - https://www.youtube.com/watch?v=vkqZC_rEkVA
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 
 

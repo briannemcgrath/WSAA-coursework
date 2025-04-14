@@ -135,8 +135,88 @@ footer {
     background-color: #333333;
 }
 
+.delete-btn {
+    padding: 8px 12px;
+    font: 1em;
+    border: none;
+    background-color: #FFC0CB;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #333333;
+}
+
 .banner-image {
     width: 100%;
     height: auto;
     display: block;
+}
+
+/* Add New Game Form Styling */
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #grey;
+    border-radius: 8px;
+    padding: 1.5em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cosy-form .form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.cosy-form label {
+    flex: 0 0 120px;
+    font-weight: bold;
+    margin-right: 1em;
+    text-align: right;
+}
+
+.cosy-form input[type="text"],
+.cosy-form input[type="number"],
+.cosy-form select, 
+.cosy-form textarea {
+    flex: 1;
+    padding: 0.5em;
+    border: 1px solid #grey;
+    border-radius: 4px;
+    font-size: 1em;
+    outline: none;
+}
+
+.cosy-form textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+.form-row.submit-row {
+    display: flex;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.form-row.submit-row button[type="submit"] {
+    background-color: #FFC0CB;
+    color: #fff;
+    padding: 0.7em 1.2em;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.form-row.submit-row button[type="submit"]:hover {
+    background-color: #f3abb7;
 }

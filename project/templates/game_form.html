@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title> {% if game %} Edit Game{% else %} Add New Game{% endif %} </title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}">
 </head>
 <body>
     <header>
@@ -15,59 +16,74 @@
     </header>
     <main> 
         <h2>{% if game %} Edit Game{% else %} Add New Game{% endif %}</h2>
-        <form id="gameForm" method="post" action="{% if game %}/games/{{ game.id }}{% else %}/games{% endif %}">
-            <!-- title field-->
-            <label for="title"> Title:</label>
-            <input type="text" id="title" name="title" value="{% if game %}{{game.title}}{% endif %}" required>
-            <br>
-            <!-- platform field-->
-            <label for="platform"> Platform:</label>
-            <select id="platform" name="platform" required>
-                <option value="">--Select Platform--</option>
-                <option value="PS5" {% if game and game.platform == "PS5" %}selected{% endif %}>PS5</option>
-                <option value="XBOX" {% if game and game.platform == "XBOX" %}selected{% endif %}>XBOX</option>
-                <option value="PC" {% if game and game.platform == "PC" %}selected{% endif %}>PC</option>
-                <option value="Nintendo Switch" {% if game and game.platform == "Nintendo Switch" %}selected{% endif %}>Nintendo Switch</option>
-                <option value="OTHER" {% if game and game.platform == "OTHER" %}selected{% endif %}>OTHER</option>
-            </select>
-            <br>
-            <!-- genre field-->
-            <label for="genre"> Genre:</label>
-            <select id="genre" name="genre" required>
-                <option value="">--Select Genre--</option>
-                <option value="RPG" {% if game and game.genre == "RPG" %}selected{% endif %}>RPG</option>
-                <option value="Action" {% if game and game.genre == "Action" %}selected{% endif %}>Action</option>
-                <option value="Adventure" {% if game and game.genre == "Adventure" %}selected{% endif %}>Adventure</option>
-                <option value="Simulation" {% if game and game.genre == "Simulation" %}selected{% endif %}>Simulation</option>
-                <option value="Strategy" {% if game and game.genre == "Strategy" %}selected{% endif %}>Strategy</option>
-                <option value="PVP" {% if game and game.genre == "PVP" %}selected{% endif %}>PVP</option>
-                <option value="Shooter" {% if game and game.genre == "Shooter" %}selected{% endif %}>Shooter</option>
-                <option value="Racing" {% if game and game.genre == "Racing" %}selected{% endif %}>Racing</option>
-                <option value="OTHER" {% if game and game.genre == "OTHER" %}selected{% endif %}>OTHER</option>
-            </select>
-            <br>
-            <!-- status field-->
-            <label for="status"> Status:</label>
-            <select id="status" name="status" required>
-                <option value="">--Select Status--</option>
-                <option value="Not Started" {% if game and game.genre == "Not Started" %}selected{% endif %}>Not Started</option>
-                <option value="In Progress" {% if game and game.genre == "In Progress" %}selected{% endif %}>In Progress</option>
-                <option value="Complete" {% if game and game.genre == "Complete" %}selected{% endif %}>Complete</option>
-            </select>
-            <br>
-            <!-- description field-->
-            <label for="description"> Description:</label>
-            <textarea id="description" name="description">{% if game %}{{game.description }}{% endif %}</textarea>
-            <br>
-            <!-- rating field-->
-            <label for="rating"> Rating:</label>
-            <input type="number" id="rating" name="rating" step="1"  value="{% if game %}{{game.rating}}{% endif %}">
-            <br>
+        
+        <div class="form-container">
+            <form class="cosy-form" method="post" action="{% if game %}/games/{{ game.id }}{% else %}/games{% endif %}">
+        
+                <!-- title field-->
+                <div class="form-row">
+                    <label for="title"> Title:</label>
+                    <input type="text" id="title" name="title" value="{% if game %}{{game.title}}{% endif %}" required>
+                </div>
 
-            <!-- submit button-->
-            <button type="submit">{% if game %} Update Game {% else %} Add Game {% endif %}</button>
-        </form>
+                <!-- platform field-->
+                <div class="form-row">
+                    <label for="platform"> Platform:</label>
+                    <select id="platform" name="platform" required>
+                        <option value="">Select Platform</option>
+                        <option value="PS5" {% if game and game.platform == "PS5" %}selected{% endif %}>PS5</option>
+                        <option value="XBOX" {% if game and game.platform == "XBOX" %}selected{% endif %}>XBOX</option>
+                        <option value="PC" {% if game and game.platform == "PC" %}selected{% endif %}>PC</option>
+                        <option value="Nintendo Switch" {% if game and game.platform == "Nintendo Switch" %}selected{% endif %}>Nintendo Switch</option>
+                        <option value="OTHER" {% if game and game.platform == "OTHER" %}selected{% endif %}>OTHER</option>
+                    </select>
+                </div>
 
+                <!-- genre field-->
+                <div class="form-row">
+                <label for="genre"> Genre:</label>
+                    <select id="genre" name="genre" required>
+                        <option value="">Select Genre</option>
+                        <option value="RPG" {% if game and game.genre == "RPG" %}selected{% endif %}>RPG</option>
+                        <option value="Action" {% if game and game.genre == "Action" %}selected{% endif %}>Action</option>
+                        <option value="Adventure" {% if game and game.genre == "Adventure" %}selected{% endif %}>Adventure</option>
+                        <option value="Simulation" {% if game and game.genre == "Simulation" %}selected{% endif %}>Simulation</option>
+                        <option value="Strategy" {% if game and game.genre == "Strategy" %}selected{% endif %}>Strategy</option>
+                        <option value="PVP" {% if game and game.genre == "PVP" %}selected{% endif %}>PVP</option>
+                        <option value="Shooter" {% if game and game.genre == "Shooter" %}selected{% endif %}>Shooter</option>
+                        <option value="Racing" {% if game and game.genre == "Racing" %}selected{% endif %}>Racing</option>
+                        <option value="OTHER" {% if game and game.genre == "OTHER" %}selected{% endif %}>OTHER</option>
+                    </select>
+                </div>
+
+                <!-- status field-->
+                <div class="form-row">
+                    <label for="status"> Status:</label>
+                    <select id="status" name="status" required>
+                        <option value="">Select Status</option>
+                        <option value="Not Started" {% if game and game.genre == "Not Started" %}selected{% endif %}>Not Started</option>
+                        <option value="In Progress" {% if game and game.genre == "In Progress" %}selected{% endif %}>In Progress</option>
+                        <option value="Complete" {% if game and game.genre == "Complete" %}selected{% endif %}>Complete</option>
+                    </select>
+                </div>
+
+                <!-- description field-->
+                <div class="form-row">
+                    <label for="description"> Description:</label>
+                    <textarea id="description" name="description">{% if game %}{{game.description }}{% endif %}</textarea>
+                </div>
+
+                <!-- rating field-->
+                <div class="form-row">
+                    <label for="rating"> Rating:</label>
+                    <input type="number" id="rating" name="rating" step="1"  value="{% if game %}{{game.rating}}{% endif %}">
+                </div>
+
+                <!-- submit button-->
+                <div class="form-row submit-row">
+                    <button type="submit">{% if game %} Update Game {% else %} Add Game {% endif %}</button>
+                </div>
+            </form>
         <!-- delete button: only show if editing an existing game-->
         {% if game %}
         <button type="button" id="deleteBtn"> Delete Game</button>
