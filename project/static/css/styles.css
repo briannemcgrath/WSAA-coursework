@@ -220,3 +220,33 @@ footer {
 .form-row.submit-row button[type="submit"]:hover {
     background-color: #f3abb7;
 }
+
+.star-rating {
+    direction: rtl;
+    font-size: 2rem;
+    unicode-bidi: bidi-override;
+    display: inline-block;
+}
+
+.star-rating input[type="radio"] {
+    display: none; /*hide the radio button */
+}
+
+.star-rating label {
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.star-rating label::before {
+    content: "\2605"; /*unicode character for a star*/
+}
+
+.star-rating input[type="radio"]:checked ~ label {
+    color: #FFC0CB;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #FFC0CB;
+}

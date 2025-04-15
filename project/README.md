@@ -62,6 +62,8 @@ The following endpoints are available for managing your game catalogue:
 - CSS Flexbox - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 - CSS Transitions - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions
 - Dynamically Deleting Rows on Javascript - https://www.youtube.com/watch?v=vkqZC_rEkVA
+- Radio - https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/radio 
+- https://developer.mozilla.org/en-US/docs/Web/CSS/::before 
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 
 
