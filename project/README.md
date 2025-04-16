@@ -64,6 +64,7 @@ The following endpoints are available for managing your game catalogue:
 - Dynamically Deleting Rows on Javascript - https://www.youtube.com/watch?v=vkqZC_rEkVA
 - Radio - https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/radio 
 - https://developer.mozilla.org/en-US/docs/Web/CSS/::before 
+- Active Page Highlight on Nav Bar - https://stackoverflow.com/questions/66427694/how-do-i-isolate-the-root-path-to-turn-on-and-off-its-active-class-on-the-navb 
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 
 

@@ -9,10 +9,11 @@
 <body>
     <header>
         <h1>Cosy Console</h1>
-        <nav>
-            <a href="/">Home</a> |
-            <a href="/game/new">Add Game</a>
-        </nav>
+        <nav class="main-nav">
+            <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a> |
+            <a href="/catalogue" class="{% if 'catalogue' in request.path %}active{% endif %}">Catalogue</a> |
+            <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}">Add Game</a>
+         </nav>
     </header>
     <main>
         <h2> Game Catalogue </h2>

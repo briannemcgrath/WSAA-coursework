@@ -11,11 +11,11 @@
     <header>
         <!-- main header for the homepage-->
          <img src="{{url_for('static', filename='image/banner.png')}}" alt="Cosy Console Banner" class="header-banner">
-         <nav>
+         <nav class="main-nav">
             <!-- navigation links (will update as more pages are added)--> 
-             <a href="/">Home</a> |
-             <a href="/catalogue">Catalogue - All Games</a> |
-             <a href="/game/new">Add Game</a>
+            <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a> |
+            <a href="/catalogue" class="{% if 'catalogue' in request.path %}active{% endif %}">Catalogue</a> |
+            <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}">Add Game</a>
          </nav>    
         </header>
 
@@ -26,6 +26,24 @@
         <blockquote> "Your personal haven for all things gaming! Here you can relax, discover, and manage your game collection with ease. Grab a comfy seat, unwind, and let's play!" </blockquote>
         </section>
 
+        <!-- quick links section-->
+        <section class="quick-links">
+            <a href="/catalogue" class="widget">
+                <div class="widget-img" 
+                style="background-image:url('{{ url_for('static',filename='image/all-games.png') }}')"></div>
+                <h4>All Games</h4>
+            </a>
+                <a href="/by-genre" class="widget">
+                <div class="widget-img" 
+                style="background-image:url('{{ url_for('static',filename='image/by-genre.png') }}')"></div>
+                <h4>By Genre</h4>
+            </a>
+                <a href="/wishlist" class="widget">
+                <div class="widget-img" 
+                style="background-image:url('{{ url_for('static',filename='image/wishlist.png') }}')"></div>
+                <h4>Wishlist</h4>
+            </a>
+        </section>
         <!---catalogue overview section-->
         <section id="catalogue-overview">
             <h3>Catalogue Overview</h3>
@@ -40,6 +58,7 @@
                 {% endfor %}
             </div>
         </section>
+   
        
         <div id="game-list">
             <!-- AJAX calls or server-sided rendering later?-->
@@ -62,7 +81,7 @@
                 // clear existing content
                 gamegrid.innerHTML = '';
                 // limit the game array for the first 4 items - to have neater homepage 
-                data.slice(0,8).forEach(game => {
+                data.slice(0,4).forEach(game => {
                     const card = document.createElement('div');
                     card.classList.add('game-card');
                     // set inner HTML of card

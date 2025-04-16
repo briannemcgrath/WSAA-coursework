@@ -35,7 +35,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1em;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
@@ -250,3 +250,45 @@ footer {
 .star-rating label:hover ~ label {
     color: #FFC0CB;
 }
+
+.main-nav {
+    position: sticky;
+    top: 0;
+    background: #333;
+    padding: 0.5em;
+    text-align: center;
+    z-index: 10;
+  }
+  .main-nav a {
+    color: #eee;
+    margin: 0 1em;
+    text-decoration: none;
+    padding-bottom: 2px;
+    transition: color 0.2s, border-bottom 0.2s;
+  }
+  .main-nav a:hover {
+    border-bottom: 2px solid #FFC0CB;
+  }
+  .main-nav a.active {
+    color: #FFC0CB;
+    border-bottom: 2px solid #FFC0CB;
+  }
+  
+  .quick-links {
+    display: flex; justify-content: center; gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .widget {
+    text-align: center; text-decoration: none; color: #333;
+    width: 200px; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  .widget:hover { transform: translateY(-5px); }
+  .widget-img {
+    width: 100%; height: 120px; background-size: cover;
+  }
+  .widget h4 {
+    background: #FFEFF2; margin: 0; padding: 0.8em 0;
+  }
+  
