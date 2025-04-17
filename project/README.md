@@ -65,6 +65,7 @@ The following endpoints are available for managing your game catalogue:
 - Radio - https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/radio 
 - https://developer.mozilla.org/en-US/docs/Web/CSS/::before 
 - Active Page Highlight on Nav Bar - https://stackoverflow.com/questions/66427694/how-do-i-isolate-the-root-path-to-turn-on-and-off-its-active-class-on-the-navb 
+- Breadcrumb Navigation - https://www.w3schools.com/howto/howto_css_breadcrumbs.asp 
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 
 
