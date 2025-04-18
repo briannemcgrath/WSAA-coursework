@@ -116,7 +116,7 @@ def create_game():
     )
     db.session.add(new_game)
     db.session.commit()
-    return redirect(url_for('home'))
+    return redirect(url_for('catalogue'))
 
 #POST /games/<id>: update an existing game
 @app.route('/games/<int:game_id>', methods=['POST'])

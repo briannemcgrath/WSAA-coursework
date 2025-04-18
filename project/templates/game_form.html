@@ -119,8 +119,8 @@
               .then(response => response.json())
               .then(data => {
                   alert(data.message);
-                  // redirect to the homepage or catalogue page after deletion
-                  window.location.href = '/';
+                  // redirect to the catalogue page after deletion
+                  window.location.href = '/catalogue';
               })
               .catch(error => console.error("Error deleting game:", error));
           }

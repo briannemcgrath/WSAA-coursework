@@ -160,7 +160,7 @@ footer {
     max-width: 800px;
     margin: 0 auto;
     background-color: #fff;
-    border: 1px solid #grey;
+    border: 1px solid #ccc;
     border-radius: 8px;
     padding: 1.5em;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -185,7 +185,7 @@ footer {
 .cosy-form textarea {
     flex: 1;
     padding: 0.5em;
-    border: 1px solid #gray;
+    border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1em;
     outline:none; 
@@ -290,7 +290,7 @@ footer {
     background: #FFEFF2; margin: 0; padding: 0.8em 0;
   }
  
-  
+
 .breadcrumb {
     text-align: center;
     margin: 1rem 0;
@@ -357,3 +357,25 @@ footer {
     background: #FFC0CB;
   }
   
+.search-form select {
+    padding: 0.5em 0.8em;
+    font-size: 1.15em;
+    border: 2px solid #ccc;       
+    border-radius: 8px;
+    background-color: #ffffff;       
+    color: #333;
+    margin: 0 0.5em 0 0;             
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .search-form select:focus {
+    outline: none;
+    border-color: #FFC0CB;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-form button {
+    padding: 0.6em 1em;
+    font-size: 1.15em;
+    vertical-align: middle;
+    border-radius: 8px;
+  }
