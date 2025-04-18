@@ -22,7 +22,7 @@
             <!-- platform dropdown-->
             <select name="platform">
                 <option value="">All Platforms</option>
-                <option value="PS5" {% if request.args.get(''platform')=='PS5'' %}selected{% endif %}>PS5</option>
+                <option value="PS5" {% if request.args.get('platform')=='PS5' %}selected{% endif %}>PS5</option>
                 <option value="XBOX" {% if request.args.get('platform')=='XBOX' %}selected{% endif %}>XBOX</option>
                 <option value="PC" {% if request.args.get('platform')=='PC' %}selected{% endif %}>PC</option>
                 <option value="Nintendo Switch" {% if request.args.get('platform')=='Nintendo Switch' %}selected{% endif %}>Nintendo Switch</option>
