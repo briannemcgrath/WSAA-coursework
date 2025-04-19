@@ -10,6 +10,7 @@ This repository contains code and resources relate to the assignments carried ou
 ## **Assignments Overview:**
 ### **Task Two - Drawing Cards:**
 File: [Drawing Cards Script File](assignment02-carddraw.py)
+
 Interact with the [Deck of Cards API](https://deckofcardsapi.com/) to: 
 - Shuffle a new deck. 
 - Draw five cards. 
@@ -19,6 +20,7 @@ Dependencies: `requests` and Python's standard library.
 
 ### **Task Three - CSO:**
 File:[CSO Script File](assignment03-cso.py)
+
 Fetch the **"Exchequer Account (Historical Series)"** dataset (Table Code: FIQ02) from the CSO PxStat API and writes in JSON‑stat format and save it to `cso.json`. 
 - Uses the JSON-stat RESTful endpoint. 
 - Writes raw JSON to disk without further processing. 
@@ -26,6 +28,7 @@ Dependencies: `requests`, `json`.
 
 ### **Task Four - Github Text Replacement:** 
 File: [Github Script File](assignment04-github.py)
+
 This script: 
 - Authenticates to GitHub using our tokem from `config.py`.
 - Lists repository contents to confirm file path. 
