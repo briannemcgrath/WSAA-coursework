@@ -15,7 +15,8 @@
             <!-- navigation links (will update as more pages are added)--> 
             <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a> |
             <a href="/catalogue" class="{% if 'catalogue' in request.path %}active{% endif %}">Catalogue</a> |
-            <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}">Add Game</a>
+            <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}">Add Game</a> |
+            <a href="/wishlist"   class="{% if 'wishlist' in request.path %}active{% endif %}">Wishlist</a>
          </nav>    
         </header>
 
