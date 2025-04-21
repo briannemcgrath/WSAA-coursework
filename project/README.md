@@ -59,6 +59,9 @@ Cosy Console aims to be more than just a database: it's a cosy corner of the int
 - Flask/SQLAlchemy Documentation - Integrates SQLAlchemy ORM with Flask for the `Game` model and database sessions (https://flask-sqlalchemy.palletsprojects.com/en/stable/)
 - Incoming Request Data Flask - How to access form data and query strings via `request.form` and `request.args` (https://flask.palletsprojects.com/en/stable/api/#incoming-request-data )
 
+**Template & Rendering**
+- Jinja2 "for" loops - powering all `{% for ... %}` blocks. (https://jinja.palletsprojects.com/en/latest/templates/#for)
+
 **Front-End Layout & Styling**
 - CSS Flexboxes - Used for game grid, quick-link widgets, and form layouts. (https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
 - CSS Grid Layout - Reference for more complex layouts if extended. (https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout)
