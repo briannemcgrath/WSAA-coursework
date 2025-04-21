@@ -80,13 +80,18 @@ def catalogue():
 
 @app.route('/by-genre')
 def by_genre():
-    genres = sorted({g.genre for g in Game.query.all()})
-    return render_template('by_genre.html', genres=genres) ##NEED TO MAKE THIS TEMPLATE 
+    genres = sorted({g.genre for g in Game.query.all() if g.genre})
+    #mapping of genre - list of games
+    genre_map = {
+        g: Game.query.filter_by(genre=g).all()
+        for g in genres
+    }
+    return render_template('by_genre.html', genre_map=genre_map) 
 
 @app.route('/wishlist')
 def wishlist():
     games = Game.query.filter_by(status='Not Started').all()
-    return render_template('wishlist.html', games=games) ##NEED TO MAKE THIS TEMPLATE
+    return render_template('wishlist.html', games=games) 
 # --------------------------------
 # RESTFUL API Endpoints for Game
 # --------------------------------

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cosy Console - Games by Genre</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}">
+</head>
+<body>
+    <header>
+        <h1>Cosy Console</h1>
+        <nav class="main-nav">
+            <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a> |
+            <a href="/catalogue" class="{% if 'catalogue' in request.path %}active{% endif %}">Catalogue</a> |
+            <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}">Add Game</a> |
+            <a href="/wishlist"   class="{% if 'wishlist' in request.path %}active{% endif %}">Wishlist</a>|
+            <a href="/by-genre" class="{% if 'by-genre' in request.path %}active{% endif %}">By Genre</a>
+         </nav>
+    </header>
+    <main>
+        <h2>Browse by Genre 🎧</h2>
+
+        <nav class="genre-nav">
+            {% for genre in genre_map.keys() %}
+                {% set slug = genre|replace(' ', '-') %}
+                <a href="#{{ slug }}">{{ genre }}</a>
+      {% endfor %}
+        </nav>
+    
+        {% for genre, games in genre_map.items() %}
+        {% set slug = genre|replace(' ', '-') %}
+        <section id="{{ slug }}" class="genre-section">
+          <h3>{{ genre }}</h3>
+          {% if games %}
+            <div class="game-grid">
+              {% for game in games %}
+                <div class="game-card">
+                  <h4>{{ game.title }}</h4>
+                  <p><strong>Platform:</strong> {{ game.platform }}</p>
+                  <a href="/game/{{ game.id }}">Details</a>
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <p>No games in this genre yet.</p>
+          {% endif %}
+        </section>
+      {% endfor %}
+    </main>
+    <footer>
+
+        <p>&copy; 2025 Cosy Console. All rights reserved.</p>
+    </footer>
+</body>
+</html>

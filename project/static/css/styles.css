@@ -379,3 +379,34 @@ footer {
     vertical-align: middle;
     border-radius: 8px;
   }
+
+  .genre-section {
+    margin: 2rem 0;
+  }
+  .genre-section h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5em;
+    color: #333;
+    border-bottom: 2px solid #FFC0CB;
+    display: inline-block;
+    padding-bottom: 0.2rem;
+  }
+  
+  .genre-nav {
+    text-align: center;
+    margin: 1.5rem 0;
+    background: #ffeef2;
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+  .genre-nav a {
+    margin: 0 0.75rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+  .genre-nav a:hover {
+    color: #FFC0CB;
+  }
+  

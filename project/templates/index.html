@@ -13,10 +13,11 @@
          <img src="{{url_for('static', filename='image/banner.png')}}" alt="Cosy Console Banner" class="header-banner">
          <nav class="main-nav">
             <!-- navigation links (will update as more pages are added)--> 
-            <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a> |
-            <a href="/catalogue" class="{% if 'catalogue' in request.path %}active{% endif %}">Catalogue</a> |
-            <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}">Add Game</a> |
-            <a href="/wishlist"   class="{% if 'wishlist' in request.path %}active{% endif %}">Wishlist</a>
+            <a href="/" class="{% if request.path == '/' %}active{% endif %}"> ☕ Home</a> |
+            <a href="/catalogue" class="{% if 'catalogue' in request.path %}active{% endif %}"> 🎮 Catalogue</a> |
+            <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}"> ➕ Add Game</a> |
+            <a href="/wishlist"   class="{% if 'wishlist' in request.path %}active{% endif %}"> 🤍 Wishlist</a> |
+            <a href="/by-genre" class="{% if 'by-genre' in request.path %}active{% endif %}"> 🎧 By Genre</a>
          </nav>    
         </header>
 
@@ -47,7 +48,7 @@
         </section>
         <!---catalogue overview section-->
         <section id="catalogue-overview">
-            <h3>Catalogue Overview</h3>
+            <h3>Catalogue Overview 📜</h3>
             <div class="game-grid">
                 {% for game in games %}
                 <div class="game-card">
@@ -68,7 +69,7 @@
 
     <footer>
         <!-- footer with basic copyright information?-->
-        <p>&copy; 2025 Cosy Console. All rights reserved.</p>
+        <p>&copy; 2025 Cosy Console. All rights reserved. 🧸</p>
     </footer>
 
 <script> 

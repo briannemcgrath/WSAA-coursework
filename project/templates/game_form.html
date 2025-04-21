@@ -13,11 +13,12 @@
             <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a> |
             <a href="/catalogue" class="{% if 'catalogue' in request.path %}active{% endif %}">Catalogue</a> |
             <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}">Add Game</a> |
-            <a href="/wishlist"   class="{% if 'wishlist' in request.path %}active{% endif %}">Wishlist</a>
+            <a href="/wishlist"   class="{% if 'wishlist' in request.path %}active{% endif %}">Wishlist</a> |
+            <a href="/by-genre" class="{% if 'by-genre' in request.path %}active{% endif %}">By Genre</a>
          </nav>
     </header>
     <main> 
-        <h2>{% if game %} Edit Game{% else %} Add New Game{% endif %}</h2>
+        <h2>{% if game %} Edit Game📋{% else %} Add New Game 📋{% endif %}</h2>
         
         <div class="form-container">
             <form class="cosy-form" method="post" action="{% if game %}/games/{{ game.id }}{% else %}/games{% endif %}">
@@ -33,11 +34,11 @@
                     <label for="platform"> Platform:</label>
                     <select id="platform" name="platform" required>
                         <option value="">Select Platform</option>
-                        <option value="PS5" {% if game and game.platform == "PS5" %}selected{% endif %}>PS5</option>
-                        <option value="XBOX" {% if game and game.platform == "XBOX" %}selected{% endif %}>XBOX</option>
-                        <option value="PC" {% if game and game.platform == "PC" %}selected{% endif %}>PC</option>
-                        <option value="Nintendo Switch" {% if game and game.platform == "Nintendo Switch" %}selected{% endif %}>Nintendo Switch</option>
-                        <option value="OTHER" {% if game and game.platform == "OTHER" %}selected{% endif %}>OTHER</option>
+                        <option value="PS5" {% if game and game.platform == "PS5" %}selected{% endif %}>PS5 🎮 </option>
+                        <option value="XBOX" {% if game and game.platform == "XBOX" %}selected{% endif %}>XBOX 🟩</option>
+                        <option value="PC" {% if game and game.platform == "PC" %}selected{% endif %}>PC 💻</option>
+                        <option value="Nintendo Switch" {% if game and game.platform == "Nintendo Switch" %}selected{% endif %}>Nintendo Switch 🔲</option>
+                        <option value="OTHER" {% if game and game.platform == "OTHER" %}selected{% endif %}>OTHER 🕹️</option>
                     </select>
                 </div>
 
@@ -46,15 +47,15 @@
                 <label for="genre"> Genre:</label>
                     <select id="genre" name="genre" required>
                         <option value="">Select Genre</option>
-                        <option value="RPG" {% if game and game.genre == "RPG" %}selected{% endif %}>RPG</option>
-                        <option value="Action" {% if game and game.genre == "Action" %}selected{% endif %}>Action</option>
-                        <option value="Adventure" {% if game and game.genre == "Adventure" %}selected{% endif %}>Adventure</option>
-                        <option value="Simulation" {% if game and game.genre == "Simulation" %}selected{% endif %}>Simulation</option>
-                        <option value="Strategy" {% if game and game.genre == "Strategy" %}selected{% endif %}>Strategy</option>
-                        <option value="PVP" {% if game and game.genre == "PVP" %}selected{% endif %}>PVP</option>
-                        <option value="Shooter" {% if game and game.genre == "Shooter" %}selected{% endif %}>Shooter</option>
-                        <option value="Racing" {% if game and game.genre == "Racing" %}selected{% endif %}>Racing</option>
-                        <option value="OTHER" {% if game and game.genre == "OTHER" %}selected{% endif %}>OTHER</option>
+                        <option value="RPG" {% if game and game.genre == "RPG" %}selected{% endif %}>RPG ⚔️ </option>
+                        <option value="Action" {% if game and game.genre == "Action" %}selected{% endif %}>Action 💥</option>
+                        <option value="Adventure" {% if game and game.genre == "Adventure" %}selected{% endif %}>Adventure 🗺️</option>
+                        <option value="Simulation" {% if game and game.genre == "Simulation" %}selected{% endif %}>Simulation🏡</option>
+                        <option value="Strategy" {% if game and game.genre == "Strategy" %}selected{% endif %}>Strategy ♟️</option>
+                        <option value="PVP" {% if game and game.genre == "PVP" %}selected{% endif %}>PVP🤝</option>
+                        <option value="Shooter" {% if game and game.genre == "Shooter" %}selected{% endif %}>Shooter 🔫</option>
+                        <option value="Racing" {% if game and game.genre == "Racing" %}selected{% endif %}>Racing 🏁</option>
+                        <option value="OTHER" {% if game and game.genre == "OTHER" %}selected{% endif %}>OTHER 🕹️ </option>
                     </select>
                 </div>
 
@@ -63,9 +64,9 @@
                     <label for="status"> Status:</label>
                     <select id="status" name="status" required>
                         <option value="">Select Status</option>
-                        <option value="Not Started" {% if game and game.status == "Not Started" %}selected{% endif %}>Not Started</option>
-                        <option value="In Progress" {% if game and game.status == "In Progress" %}selected{% endif %}>In Progress</option>
-                        <option value="Complete" {% if game and game.status == "Complete" %}selected{% endif %}>Complete</option>
+                        <option value="Not Started" {% if game and game.status == "Not Started" %}selected{% endif %}>Not Started 🌱</option>
+                        <option value="In Progress" {% if game and game.status == "In Progress" %}selected{% endif %}>In Progress ☕</option>
+                        <option value="Complete" {% if game and game.status == "Complete" %}selected{% endif %}>Complete 🌟 </option>
                     </select>
                 </div>
 
