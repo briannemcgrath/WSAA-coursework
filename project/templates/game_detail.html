@@ -10,9 +10,11 @@
         <!--- add banner for page?-->
         <h1>{{game.title}}</h1>
         <nav class="main-nav">
-            <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a> |
-            <a href="/catalogue" class="{% if 'catalogue' in request.path %}active{% endif %}">Catalogue</a> |
-            <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}">Add Game</a>
+            <a href="/" class="{% if request.path == '/' %}active{% endif %}"> ☕ Home</a> |
+            <a href="/catalogue" class="{% if 'catalogue' in request.path %}active{% endif %}">🎮 Catalogue</a> |
+            <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}"> ➕ Add Game</a> |
+            <a href="/wishlist"   class="{% if 'wishlist' in request.path %}active{% endif %}"> 🤍 Wishlist</a> |
+            <a href="/by-genre" class="{% if 'by-genre' in request.path %}active{% endif %}">🎧 Games by Genre</a>
         </nav>
     </header>
 
@@ -24,12 +26,12 @@
           <span>{{ game.title }}</span>
         </nav>
 
-        <section class="detail-card"            
-            <h2>{{game.title}} - Overview</h2>
+        <section class="detail-card">       
+            <h2><strong>{{game.title}} - Overview</strong></h2>
             <div class="detail-meta">
                 <div><strong>Platform:</strong> {{game.platform}}</div>
                 <div><strong>Genre:</strong> {{game.genre}}</div>
-                <div><strong>Staus:</strong> {{game.status}}</div>
+                <div><strong>Status:</strong> {{game.status}}</div>
                 <div><strong>Description:</strong> {{game.description}}</div>
                 <!-- star rating-->
                 <div class="star-rating-display">
@@ -40,13 +42,13 @@
             </div>
 
             <div class="detail-actions">
-                <a href="/game/edit/{{game.id}}" class="btn">Edit Game</a>
-                <button id="deleteBtn" class="btn btn-danger">Delete Game</button>
+                <a href="/game/edit/{{game.id}}" class="btn">Edit</a>
+                <button id="deleteBtn" class="btn btn-danger">Delete</button>
             </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Cosy Console. All rights reserved.</p>
+        <p>&copy; 2025 Cosy Console. All rights reserved.🧸</p>
     </footer>
 
     <!--delete game-->

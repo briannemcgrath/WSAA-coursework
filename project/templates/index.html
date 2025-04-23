@@ -17,7 +17,7 @@
             <a href="/catalogue" class="{% if 'catalogue' in request.path %}active{% endif %}"> 🎮 Catalogue</a> |
             <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}"> ➕ Add Game</a> |
             <a href="/wishlist"   class="{% if 'wishlist' in request.path %}active{% endif %}"> 🤍 Wishlist</a> |
-            <a href="/by-genre" class="{% if 'by-genre' in request.path %}active{% endif %}"> 🎧 By Genre</a>
+            <a href="/by-genre" class="{% if 'by-genre' in request.path %}active{% endif %}"> 🎧 Games by Genre</a>
          </nav>    
         </header>
 
@@ -83,7 +83,7 @@
                 // clear existing content
                 gamegrid.innerHTML = '';
                 // limit the game array for the first 4 items - to have neater homepage 
-                data.slice(0,4).forEach(game => {
+                data.slice(0,8).forEach(game => {
                     const card = document.createElement('div');
                     card.classList.add('game-card');
                     // set inner HTML of card
