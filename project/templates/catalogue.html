@@ -19,6 +19,14 @@
     </header>
     <main>
         <h2> Game Catalogue 🎮</h2>
+
+        <section class="mini-stats">
+            <span class="stat-pill">🎮 {{ stats.total }} Games in Catalogue</span>
+            <span class="stat-pill">🕹️ {{stats.playing}} Games in Progess</span>
+            <span class="stat-pill">✅ {{ stats.completed_pct }}% Complete</span>
+            <span class="stat-pill">🤍 {{ stats.wishlist }} Wishlist</span>
+        </section>
+
         <!--search form for filtering games-->
         <form class="search-form" method="get" action="/catalogue">
             <!-- platform dropdown-->

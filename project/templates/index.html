@@ -19,13 +19,18 @@
             <a href="/wishlist"   class="{% if 'wishlist' in request.path %}active{% endif %}"> 🤍 Wishlist</a> |
             <a href="/by-genre" class="{% if 'by-genre' in request.path %}active{% endif %}"> 🎧 Games by Genre</a>
          </nav>    
-        </header>
+    </header>
 
     <main> 
         <!-- welcome section on the homepage-->
         <section class="intro">
             <h2>Welcome to Cosy Console!</h2>
         <blockquote> "Your personal haven for all things gaming! Here you can relax, discover, and manage your game collection with ease. Grab a comfy seat, unwind, and let's play!" </blockquote>
+        </section>
+
+        <section class="daily-tip">
+            <h3>💡 Important Gamer Tips 💡</h3>
+            <p ic="tip">{{ tip }}</p>
         </section>
 
         <!-- quick links section-->
@@ -46,6 +51,7 @@
                 <h4>Wishlist</h4>
             </a>
         </section>
+
         <!---catalogue overview section-->
         <section id="catalogue-overview">
             <h3>Catalogue Overview 📜</h3>
@@ -60,8 +66,10 @@
                 {% endfor %}
             </div>
         </section>
-   
-       
+        
+        <!-- chooses a random game to view details of-->
+        <button id="randomBtn" class="random-game-btn">🎲 Surprise Me!</button>
+
         <div id="game-list">
             <!-- AJAX calls or server-sided rendering later?-->
         </div>
@@ -82,7 +90,7 @@
                 const gamegrid = document.querySelector('.game-grid');
                 // clear existing content
                 gamegrid.innerHTML = '';
-                // limit the game array for the first 4 items - to have neater homepage 
+                // limit the game array for the first 8
                 data.slice(0,8).forEach(game => {
                     const card = document.createElement('div');
                     card.classList.add('game-card');
@@ -102,5 +110,18 @@
   // automatically refresh the game list on page load
   window.addEventListener('DOMContentLoaded', refreshGameList);
 </script>
+
+<script>
+    document.getElementById('randomBtn').addEventListener('click', () => {
+      fetch('/games')
+        .then(r => r.json())
+        .then(games => {
+          if (!games.length) return alert("No games yet!");
+          const g = games[Math.floor(Math.random() * games.length)];
+          alert(`How about: ${g.title}\nPlatform: ${g.platform}\nGenre: ${g.genre}\nDescription: ${g.description}`);
+        });
+    });
+  </script>
+
 </body>
 </html>

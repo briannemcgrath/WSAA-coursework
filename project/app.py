@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+import random 
 
 app = Flask(__name__)
 
@@ -32,19 +33,33 @@ class Game(db.Model):
             'rating': self.rating
         }
 
+daily_tips = [
+    "Always save before exploring that dungeon!🗡️",
+    "Sprinting is faster than walking!💭", 
+    "Aim down sights to be more accurate!🎮", 
+    "If you're having trouble winning in combat, try getting better at the game🤫", 
+    "Take a break every hour or you'll cramp that thumb!🎮",
+    "Achievement Unlocked: Spent more time customising your character than actually playing the game 💅🏻",
+    "When in doubt, mash all the buttons simultaneously. True mastery comes from chaos🤯", 
+    "Always reload your weapon after every shot - just to keep things interesting🔫",
+    "If you're low on health trying using a healing potion? Just a thought💭"    
+]
+
 #---------------------------------------
 #Template-rendering Routes (HTML Pages)
 #---------------------------------------
 @app.route('/')
 def home():
-    games = Game.query.limit(8).all()
-    return render_template('index.html', games=games)
+    games=Game.query.all()
+    #pick a random tip 
+    tip = random.choice(daily_tips)
+    featured = games[:10]   
+    return render_template('index.html', games=featured, tip=tip)
 
 @app.route('/game/<int:game_id>')
 def game_detail_view(game_id):
     #get game from database; 404 if not found
     game = Game.query.get_or_404(game_id)
-    #render the game_detail.html template, passing the game data
     return render_template('game_detail.html', game=game)
 
 @app.route('/game/new', methods=['GET'])
@@ -58,14 +73,11 @@ def edit_game_form(game_id):
 
 @app.route('/catalogue')
 def catalogue():
-
+    query = Game.query
     #get query parameters for filtering
     platform = request.args.get('platform', None)
     genre = request.args.get('genre', None)
     status = request.args.get('status', None)
-
-    #starting with all games
-    query = Game.query
 
     #filtering
     if platform: 
@@ -74,9 +86,26 @@ def catalogue():
         query = query.filter(Game.genre.ilike(f"%{genre}%"))
     if status: 
         query = query.filter(Game.status.ilike(f"%{status}%"))
-
+    
+    #filtered list
     games = query.all()
-    return render_template('catalogue.html', games=games)
+
+    #stats
+    total = len(games)
+    completed = sum(1 for g in games if g.status == "Complete")
+    wishlist  = sum(1 for g in games if g.status == "Not Started")
+    playing = sum(1 for g in games if g.status == "In Progress")
+    pct_done  = int((completed/total)*100) if total else 0
+
+    
+    return render_template('catalogue.html', games=games,
+        stats={
+            'total':total, 
+            'playing': playing,
+            'completed_pct': pct_done,
+            'wishlist':wishlist
+        }
+    )
 
 @app.route('/by-genre')
 def by_genre():
@@ -92,6 +121,7 @@ def by_genre():
 def wishlist():
     games = Game.query.filter_by(status='Not Started').all()
     return render_template('wishlist.html', games=games) 
+
 # --------------------------------
 # RESTFUL API Endpoints for Game
 # --------------------------------
