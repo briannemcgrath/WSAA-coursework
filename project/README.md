@@ -69,6 +69,7 @@ Cosy Console aims to be more than just a database: it's a cosy corner of the int
 - W3 CSS Templates - Inspiration for basic templates and color schemes. (https://www.w3schools.com/w3css/w3css_templates.asp )
 - CSS Transitions - Smooth hover and focus effects on cards, buttons, and dropdowns. (https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
 - Box Shadow - Applied soft shadows to cards and footer. (https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow )
+- CSS Pills & Badges - Styling `.stat.pill` with `display_inline-block`, `border-radius`, `padding` and `background` - (https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)
 
 **Typography & Elements**
 - HTML Tables - Layout for the full catalogue page table. (https://www.w3schools.com/html/html_tables.asp, https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table )
