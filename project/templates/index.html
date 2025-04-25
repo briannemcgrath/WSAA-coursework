@@ -90,8 +90,13 @@
                 const gamegrid = document.querySelector('.game-grid');
                 // clear existing content
                 gamegrid.innerHTML = '';
-                // limit the game array for the first 8
-                data.slice(0,8).forEach(game => {
+
+                // shuffle games shown in cards
+                const random = data
+                    .sort(() => Math.random() - 0.5)    //randomly reorder
+                    .slice(0,8);                        //pick first eight
+
+                random.forEach(game => {                
                     const card = document.createElement('div');
                     card.classList.add('game-card');
                     // set inner HTML of card
@@ -122,6 +127,7 @@
         });
     });
   </script>
+
 
 </body>
 </html>
