@@ -19,6 +19,7 @@
     </header>
     <main> 
         <h2>{% if game %} Edit Game📋{% else %} Add New Game 📋{% endif %}</h2>
+        <p>New Title Unlocked! 🔓 Tell Me About Your Latest Find</p>
         
         <div class="form-container">
             <form class="cosy-form" method="post" action="{% if game %}/games/{{ game.id }}{% else %}/games{% endif %}">
@@ -50,7 +51,7 @@
                         <option value="RPG" {% if game and game.genre == "RPG" %}selected{% endif %}>RPG ⚔️ </option>
                         <option value="Action" {% if game and game.genre == "Action" %}selected{% endif %}>Action 💥</option>
                         <option value="Adventure" {% if game and game.genre == "Adventure" %}selected{% endif %}>Adventure 🗺️</option>
-                        <option value="Simulation" {% if game and game.genre == "Simulation" %}selected{% endif %}>Simulation🏡</option>
+                        <option value="Simulation" {% if game and game.genre == "Simulation" %}selected{% endif %}>Simulation🖥️</option>
                         <option value="Strategy" {% if game and game.genre == "Strategy" %}selected{% endif %}>Strategy ♟️</option>
                         <option value="PVP" {% if game and game.genre == "PVP" %}selected{% endif %}>PVP🤝</option>
                         <option value="Shooter" {% if game and game.genre == "Shooter" %}selected{% endif %}>Shooter 🔫</option>

@@ -17,33 +17,86 @@
             <a href="/by-genre" class="{% if 'by-genre' in request.path %}active{% endif %}">🎧 Games by Genre</a>
          </nav>
     </header>
+    
     <main>
         <h2>Browse by Genre 🎧</h2>
+        <p>Find your next advenure by genre! Click any of the genres below to jump straight to the games you love🤍 </p>
+
+        <!-- jump links-->
         <nav class="genre-nav">
             {% for genre in genre_map.keys() %}
                 <a href="#{{ genre|replace(' ', '-') }}">{{ genre }}</a>
       {% endfor %}
         </nav>
-        <div class="by-genre-list">
-            {% for genre, games in genre_map.items() %}
-                <section class="by-genre-section">
-                    <h3 id="{{genre|replace(' ', '-') }}">{{genre}}</h3>
-                    <div class="game-grid">
-                        {% for g in games %}
-                            <div class="game-card">
-                                <h4>{{ g.title }}</h4>
-                                <p><strong>Platform:</strong> {{ g.platform }}</p>
-                                <p><strong>Status:</strong>{{g.status}}</p>
-                                <a href="/game/{{ g.id }}">Details</a>
-                    </div>
-                {% endfor %}
-            </div>    
-        </section>
-        {% endfor %}
-        </div>
+
+        <!-- table view similar to catalogue page-->
+              {% for genre, games in genre_map.items() %}
+                <h3 id="{{genre|replace(' ', '-') }}">
+                    {% if genre == 'Action' %}💥{% elif genre == 'Adventure' %}🗺️{% elif genre == 'RPG' %}⚔️{% elif genre == 'Shooter' %}🔫{% elif genre == 'PVP' %}🤝{% elif genre == 'Simulation' %}🖥️{% elif genre == 'Strategy' %}♟️{% else %}🎲{% endif %}
+                    {{genre}}
+
+                </h3>
+
+                    {% if games %}
+                        <table class="catalogue-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Platform</th>
+                                    <th>Status</th>
+                                    <th>Details</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for game in games %}
+                                    <tr>
+                                        <td> {{game.title}} </td>
+                                        <td> {{game.platform}}</td>
+                                        <td> {{game.status}}</td>
+                                        <td><a href="/game/{{game.id}}">View Details</a></td>
+                                        <td>
+                                            <button class="delete-btn" data-gameid="{{game.id}}">Delete</button>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <p class="no-games">No games in this genre yet - get adding!🎮</p>
+                    {% endif %}
+                </section>
+            {% endfor %}                          
     </main>
+
     <footer>
         <p>&copy; 2025 Cosy Console. All rights reserved.🧸</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+
+            deleteButtons.forEach((button) => {
+                button.addEventListener('click', function() {
+                    if (confirm("Are you sure you want to delete this game? :(")) {
+                        const gameId = button.getAttribute('data-gameid');
+                        fetch(`/games/${gameId}`, {
+                            method: 'DELETE'
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            alert(data.message);
+                            const row = button.closest('tr');
+                            if (row) {
+                                row.remove();
+                            }
+                        })
+                        .catch(error => console.error('Error deleting game:', error));
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
