@@ -201,7 +201,7 @@ footer {
 .widget {
   text-align: center; 
   text-decoration: none; 
-  color: var(--card-bg);
+  color: var(--text);
   width: 200px; 
   border-radius: 8px; 
   overflow: hidden;
@@ -236,7 +236,7 @@ background-repeat: no-repeat;
 
 .game-card {
   background-color: var(--card-bg);
-  border: 1px solid var(--muted);
+  border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 5px var(--shadow);
   padding: 15px;
@@ -390,12 +390,12 @@ background-repeat: no-repeat;
 }
 
 .search-form button:hover {
-  background-color: #333333;
+  background-color: var(--text);
 }
 
 .search-form select {
   padding: 0.5em 0.8em;
-  font-size: 1.15em;
+  font-size: 1em;
   border: 2px solid #ccc;       
   border-radius: 8px;
   background-color: #ffffff;       
