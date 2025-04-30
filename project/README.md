@@ -87,6 +87,8 @@ Cosy Console aims to be more than just a database: it's a cosy corner of the int
 - Query String in Flask Routes - Handling `request.args` for server-side filtering. (https://stackoverflow.com/questions/11774265/how-do-you-access-the-query-string-in-flask-routes) 
 - Array.prototype.slice() - Used to grab a sub-array of fixed length for 'Catalogue Overview' section - (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
 - Array.prototype.sort() - Quick shuffle of games array for 'Catalogue Overview' section - (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+- Window.scrollTo() - Smooth scroll back to top on button click. (https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo)
+- Back to Top Button - Implemented on `catalogue.html` and `by_genre.html` for ease of scrolling back to top. (https://www.w3schools.com/howto/howto_js_scroll_to_top.asp)
 
 **Navigation & Usability**
 - Active Page Highlight - Conditionally adding an `active` class to `<nav>` links based on `request.path`. (https://stackoverflow.com/questions/66427694/how-do-i-isolate-the-root-path-to-turn-on-and-off-its-active-class-on-the-navb )

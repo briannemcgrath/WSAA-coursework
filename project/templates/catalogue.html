@@ -85,7 +85,7 @@
                     <td>{{game.status}}</td>
                     <td> <a href="/game/{{game.id}}">View Details</a> </td>
                     <td>
-                        <button class="btn" data-gameid="{{game.id}}">Delete</button>
+                        <button class="btn delete-btn" data-gameid="{{game.id}}">Delete</button>
                     </td>
                 </tr>
                 {% else %}
@@ -100,7 +100,6 @@
         <!-- footer with basic copyright information?-->
         <p>&copy; 2025 Cosy Console. All rights reserved.🧸</p>
     </footer>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const deleteButtons = document.querySelectorAll('.delete-btn');
@@ -124,6 +123,18 @@
                     }
                 });
             });
+        });
+    </script>
+
+    <button id="backToTop" class="back-to-top">Back to Top🤗</button>
+    <script>
+        const backBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) backBtn.classList.add('show');
+          else backBtn.classList.remove('show');
+        });
+        backBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>

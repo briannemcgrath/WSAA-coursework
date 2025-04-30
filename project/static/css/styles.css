@@ -169,6 +169,32 @@ footer {
   color: var(--light-bg);
 }
 
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--pink);
+  color: var(--dark);
+  font-weight: bold;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 100;
+}
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.back-to-top:hover {
+  background: var(--dark);
+  color: var(--light-bg);
+}
 /*------------------------------------
   Quick-Links & Widgets
 ------------------------------------*/
