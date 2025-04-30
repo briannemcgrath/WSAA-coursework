@@ -78,6 +78,7 @@ Cosy Console aims to be more than just a database: it's a cosy corner of the int
 - HTML <select> & <option> - Dropdowns for platform, genre, and status filter. (https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/select ,https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/option#attr-selected, https://www.w3schools.com/TAgs/tag_select.asp  )
 - HTML <input type="radio"> - Star rating inputs on the game form. (https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/radio)
 - CSS ::before Pseudo-Element - Injected star characters for rating display. (https://www.w3schools.com/TAgs/tag_select.asp, https://developer.mozilla.org/en-US/docs/Web/CSS/::before )
+- HTML <input type="search"> - Search function fro the catalogue page. (https://www.w3schools.com/tags/att_input_type_search.asp)
 
 **JavaScript & AJAX**
 - Fetch API - AJAX calls to load featured games and delete entries without full page reload (https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch,https://www.freecodecamp.org/news/,https://www.youtube.com/watch?v=Oive66jrwBs   )

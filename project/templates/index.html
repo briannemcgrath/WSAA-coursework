@@ -12,7 +12,7 @@
         <!-- main header for the homepage-->
          <img src="{{url_for('static', filename='image/banner.png')}}" alt="Cosy Console Banner" class="header-banner">
          <nav class="main-nav">
-            <!-- navigation links (will update as more pages are added)--> 
+            <!-- navigation links--> 
             <a href="/" class="{% if request.path == '/' %}active{% endif %}"> ☕ Home</a> |
             <a href="/catalogue" class="{% if 'catalogue' in request.path %}active{% endif %}"> 🎮 Catalogue</a> |
             <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}"> ➕ Add Game</a> |
@@ -69,9 +69,7 @@
         
         <!-- chooses a random game to view details of-->
         <button id="randomBtn" class="random-game-btn">🎲 Surprise Me!</button>
-
         <div id="game-list">
-            <!-- AJAX calls or server-sided rendering later?-->
         </div>
     </main>
 

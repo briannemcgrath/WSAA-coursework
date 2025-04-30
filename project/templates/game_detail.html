@@ -26,7 +26,7 @@
         </nav>
 
         <section class="detail-card">       
-            <h2><strong>{{game.title}} - Overview</strong></h2>
+            <h2><strong>{{game.title}}</strong></h2>
             <div class="detail-meta">
                 <div><strong>Platform:</strong> {{game.platform}}</div>
                 <div><strong>Genre:</strong> {{game.genre}}</div>
@@ -42,7 +42,7 @@
 
             <div class="detail-actions">
                 <a href="/game/edit/{{game.id}}" class="btn">Edit</a>
-                <button id="deleteBtn" class="btn btn-danger">Delete</button>
+                <button id= "delete-btn" class="btn delete-btn">Delete</button>
             </div>
         </section>
     </main>
@@ -52,7 +52,7 @@
 
     <!--delete game-->
     <script>
-        document.getElementById('deleteBtn').addEventListener('click', function() {
+        document.getElementById('delete-btn').addEventListener('click', function() {
             if (confirm("Are you sure you want to delete this game? :()")) {
                 fetch('/games/{{game.id}}', {method:'DELETE'})
                     .then(r => r.json())

@@ -100,13 +100,14 @@
 
                 <!-- submit button-->
                 <div class="form-row submit-row">
-                    <button type="submit">{% if game %} Update Game {% else %} Add Game {% endif %}</button>
+                    <button type="submit" class="btn">{% if game %} Update Game {% else %} Add Game {% endif %}</button>
+                    
+                    {% if game %}
+                    <!-- delete button: only show if editing an existing game-->
+                    <button type="button" id="deleteBtn" class="btn delete-btn"> Delete Game</button>
+                    {% endif %}
                 </div>
-            </form>
-        <!-- delete button: only show if editing an existing game-->
-        {% if game %}
-        <button type="button" id="deleteBtn"> Delete Game</button>
-        {% endif %} 
+            </form>       
     </main>
     <footer>
         <p>&copy; 2025 Cosy Console. All rights reserved.🧸</p>

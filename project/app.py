@@ -75,11 +75,14 @@ def edit_game_form(game_id):
 def catalogue():
     query = Game.query
     #get query parameters for filtering
+    title = request.args.get('title', None)
     platform = request.args.get('platform', None)
     genre = request.args.get('genre', None)
     status = request.args.get('status', None)
 
     #filtering
+    if title: 
+        query = query.filter(Game.title.ilike(f"%{title}%"))
     if platform: 
         query = query.filter(Game.platform.ilike(f"%{platform}%"))
     if genre: 

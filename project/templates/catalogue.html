@@ -29,39 +29,37 @@
 
         <!--search form for filtering games-->
         <form class="search-form" method="get" action="/catalogue">
+            <input type="text" name="title" placeholder="Search by Title..." value="{{ request.args.get('title','') }}">
             <!-- platform dropdown-->
             <select name="platform">
                 <option value="">All Platforms</option>
-                <option value="PS5" {% if request.args.get('platform')=='PS5' %}selected{% endif %}>PS5</option>
-                <option value="XBOX" {% if request.args.get('platform')=='XBOX' %}selected{% endif %}>XBOX</option>
-                <option value="PC" {% if request.args.get('platform')=='PC' %}selected{% endif %}>PC</option>
-                <option value="Nintendo Switch" {% if request.args.get('platform')=='Nintendo Switch' %}selected{% endif %}>Nintendo Switch</option>
-                <option value="OTHER" {% if request.args.get('platform')=='OTHER' %}selected{% endif %}>OTHER</option>
+                <option value="PS5" {% if request.args.get('platform')=='PS5' %}selected{% endif %}>PS5🎮</option>
+                <option value="XBOX" {% if request.args.get('platform')=='XBOX' %}selected{% endif %}>XBOX🟩</option>
+                <option value="PC" {% if request.args.get('platform')=='PC' %}selected{% endif %}>PC💻</option>
+                <option value="Nintendo Switch" {% if request.args.get('platform')=='Nintendo Switch' %}selected{% endif %}>Nintendo Switch🔲</option>
+                <option value="OTHER" {% if request.args.get('platform')=='OTHER' %}selected{% endif %}>OTHER🕹️</option>
               </select>
 
             <!-- genre dropdown-->
             <select name="genre">
                 <option value="">All Genres</option>
-                <option value="RPG" {% if request.args.get('genre')=='RPG' %}selected{% endif %}>RPG</option>
-                <option value="Action" {% if request.args.get('genre')=='Action' %}selected{% endif %}>Action</option>
-                <option value="Adventure" {% if request.args.get('genre')=='Adventure' %}selected{% endif %}>Adventure</option>
-                <option value="Simulation" {% if request.args.get('genre')=='Simulation' %}selected{% endif %}>Simulation</option>
-                <option value="Strategy" {% if request.args.get('genre')=='Strategy' %}selected{% endif %}>Strategy</option>
-                <option value="PVP" {% if request.args.get('genre')=='PVP' %}selected{% endif %}>PVP</option>
-                <option value="Shooter" {% if request.args.get('genre')=='Shooter' %}selected{% endif %}>Shooter</option>
-                <option value="Racing" {% if request.args.get('genre')=='Racing' %}selected{% endif %}>Racing</option>
-                <option value="OTHER" {% if request.args.get('genre')=='OTHER' %}selected{% endif %}>OTHER</option>
+                <option value="RPG" {% if request.args.get('genre')=='RPG' %}selected{% endif %}>RPG⚔️</option>
+                <option value="Action" {% if request.args.get('genre')=='Action' %}selected{% endif %}>Action💥</option>
+                <option value="Adventure" {% if request.args.get('genre')=='Adventure' %}selected{% endif %}>Adventure🗺️</option>
+                <option value="Simulation" {% if request.args.get('genre')=='Simulation' %}selected{% endif %}>Simulation🖥️</option>
+                <option value="Strategy" {% if request.args.get('genre')=='Strategy' %}selected{% endif %}>Strategy♟️</option>
+                <option value="PVP" {% if request.args.get('genre')=='PVP' %}selected{% endif %}>PVP🤝</option>
+                <option value="Shooter" {% if request.args.get('genre')=='Shooter' %}selected{% endif %}>Shooter🔫</option>
+                <option value="Racing" {% if request.args.get('genre')=='Racing' %}selected{% endif %}>Racing🏁</option>
+                <option value="OTHER" {% if request.args.get('genre')=='OTHER' %}selected{% endif %}>OTHER🕹️</option>
               </select>
-
-
-
 
             <!-- status dropdown-->
             <select name="status">
                 <option value="">All Statuses</option>
-                <option value="Not Started" {% if request.args.get('status')=='Not Started' %}selected{% endif %}>Not Started</option>
-                <option value="In Progress" {% if request.args.get('status')=='In Progress' %}selected{% endif %}>In Progress</option>
-                <option value="Complete" {% if request.args.get('status')=='Complete' %}selected{% endif %}>Complete</option>
+                <option value="Not Started" {% if request.args.get('status')=='Not Started' %}selected{% endif %}>Not Started🌱</option>
+                <option value="In Progress" {% if request.args.get('status')=='In Progress' %}selected{% endif %}>In Progress☕</option>
+                <option value="Complete" {% if request.args.get('status')=='Complete' %}selected{% endif %}>Complete🌟</option>
               </select>
             <button type="submit">Search</button>
         </form>
@@ -87,7 +85,7 @@
                     <td>{{game.status}}</td>
                     <td> <a href="/game/{{game.id}}">View Details</a> </td>
                     <td>
-                        <button class="delete-btn" data-gameid="{{game.id}}">Delete</button>
+                        <button class="btn" data-gameid="{{game.id}}">Delete</button>
                     </td>
                 </tr>
                 {% else %}
