@@ -4,28 +4,32 @@ import random
 
 app = Flask(__name__)
 
-#configure the app to use a SQLite database named games.db
+# ---------------------------------------
+# App Configuration
+# ---------------------------------------
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///games.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #disable modification tracking for performance 
 
-#initialising the SQLAlchemy ORM 
+
 db = SQLAlchemy(app)
 
-#defining game model for storing game information 
+# ---------------------------------------
+# Data Model
+# --------------------------------------- 
 class Game(db.Model):
-    id = db.Column(db.Integer, primary_key=True) #unique ID for each game
-    title = db.Column(db.String(150), nullable=False) #game title
-    platform = db.Column(db.String(50), nullable=False) #game platform (e.g., PS5, Switch, PC)
-    genre = db.Column(db.String(50)) #game genre
-    status = db.Column(db.String(50)) #game progress (e.g., Not Started, In Progress, Complete)
-    description = db.Column(db.Text) #game description
-    rating = db.Column(db.Float) #game rating
+    id = db.Column(db.Integer, primary_key=True) 
+    title = db.Column(db.String(150), nullable=False) 
+    platform = db.Column(db.String(50), nullable=False) 
+    genre = db.Column(db.String(50), nullable=False)
+    status = db.Column(db.String(50)) 
+    description = db.Column(db.Text) 
+    rating = db.Column(db.Float) 
 
-    #converting game instance to a dictionary for JSON responses
     def to_dict(self):
+        #convert model instance to dictionary for JSON response
         return {
-            'id': self.id,
-            'title': self.title,  
+            'id': self.id, 
+            'title': self.title, 
             'platform': self.platform, 
             'genre': self.genre, 
             'status': self.status, 
@@ -33,6 +37,9 @@ class Game(db.Model):
             'rating': self.rating
         }
 
+# ---------------------------------------
+# Helper Data
+# ---------------------------------------
 daily_tips = [
     "Always save before exploring that dungeon!🗡️",
     "Sprinting is faster than walking!💭", 
@@ -50,37 +57,38 @@ daily_tips = [
 #---------------------------------------
 @app.route('/')
 def home():
+    #render the homepage with a random tip and featured games
     games=Game.query.all()
-    #pick a random tip 
     tip = random.choice(daily_tips)
     featured = games[:10]   
     return render_template('index.html', games=featured, tip=tip)
 
 @app.route('/game/<int:game_id>')
 def game_detail_view(game_id):
-    #get game from database; 404 if not found
+    #show details for a specific game
     game = Game.query.get_or_404(game_id)
     return render_template('game_detail.html', game=game)
 
 @app.route('/game/new', methods=['GET'])
 def new_game_form():
+    #display form to add new game 
     return render_template('game_form.html', game=None) 
 
 @app.route('/game/edit/<int:game_id>', methods=['GET'])
 def edit_game_form(game_id):
+    #display form to edit existing game 
     game = Game.query.get_or_404(game_id)
     return render_template('game_form.html', game=game)
 
 @app.route('/catalogue')
 def catalogue():
-    query = Game.query
-    #get query parameters for filtering
+    #list and filter games; display summary stats
+    query = Game.query 
     title = request.args.get('title', None)
     platform = request.args.get('platform', None)
     genre = request.args.get('genre', None)
     status = request.args.get('status', None)
 
-    #filtering
     if title: 
         query = query.filter(Game.title.ilike(f"%{title}%"))
     if platform: 
@@ -90,30 +98,25 @@ def catalogue():
     if status: 
         query = query.filter(Game.status.ilike(f"%{status}%"))
     
-    #filtered list
     games = query.all()
-
-    #stats
     total = len(games)
     completed = sum(1 for g in games if g.status == "Complete")
     wishlist  = sum(1 for g in games if g.status == "Not Started")
     playing = sum(1 for g in games if g.status == "In Progress")
     pct_done  = int((completed/total)*100) if total else 0
-
-    
-    return render_template('catalogue.html', games=games,
-        stats={
+    stats={
             'total':total, 
             'playing': playing,
             'completed_pct': pct_done,
             'wishlist':wishlist
-        }
-    )
+    }
+    
+    return render_template('catalogue.html', games=games, stats=stats)
 
 @app.route('/by-genre')
 def by_genre():
+    #display games grouped by genre with jump links
     genres = sorted({g.genre for g in Game.query.all() if g.genre})
-    #mapping of genre - list of games
     genre_map = {
         g: Game.query.filter_by(genre=g).all()
         for g in genres
@@ -122,6 +125,7 @@ def by_genre():
 
 @app.route('/wishlist')
 def wishlist():
+    #display games not started yet 
     games = Game.query.filter_by(status='Not Started').all()
     return render_template('wishlist.html', games=games) 
 
@@ -129,21 +133,21 @@ def wishlist():
 # RESTFUL API Endpoints for Game
 # --------------------------------
 
-#GET /games: list all games 
 @app.route('/games', methods=['GET'])
 def get_games():
+    #return JSON list of all games 
     games = Game.query.all()
     return jsonify([game.to_dict() for game in games])
 
-#GET /games/<id>: get details for a specific game 
 @app.route('/games/<int:game_id>', methods=['GET'])
 def get_game(game_id):
+    #return JSON details for one game 
     game = Game.query.get_or_404(game_id)
     return jsonify(game.to_dict())
 
-#POST /games: create new game entry 
 @app.route('/games', methods=['POST'])
 def create_game():
+    #create a new game from form data and redirect to catalogue 
     new_game = Game(
         title=request.form.get('title'), 
         platform=request.form.get('platform'), 
@@ -156,12 +160,10 @@ def create_game():
     db.session.commit()
     return redirect(url_for('catalogue'))
 
-#POST /games/<id>: update an existing game
 @app.route('/games/<int:game_id>', methods=['POST'])
 def update_game(game_id):
+    #update fields of an existing game and redirect home 
     game = Game.query.get_or_404(game_id)
-    
-    #update only the fields provided in the form
     if request.form.get('title'):
         game.title = request.form.get('title')
     if request.form.get('platform'):
@@ -178,15 +180,17 @@ def update_game(game_id):
     db.session.commit()
     return redirect(url_for('home'))
 
-#DELETE /games/<id>: remove a game from catalogue
 @app.route('/games/<int:game_id>', methods=['DELETE'])
 def delete_game(game_id):
+    #delete a game and return JSON status message 
     game = Game.query.get_or_404(game_id)
     db.session.delete(game)
     db.session.commit()
     return jsonify({'message': 'Game deleted successfully!'})
 
-#run the app and create databse tables if they don't exist 
+# ---------------------------------------
+# Run Server
+# --------------------------------------- 
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
