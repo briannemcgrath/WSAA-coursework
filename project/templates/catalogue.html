@@ -7,6 +7,10 @@
     <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}">
 </head>
 <body>
+
+<!-- ===================================
+        HEADER & NAVIGATION
+        =================================== -->
     <header>
         <h1>Cosy Console</h1>
         <nav class="main-nav">
@@ -17,9 +21,14 @@
             <a href="/by-genre" class="{% if 'by-genre' in request.path %}active{% endif %}">🎧 Games by Genre</a>
          </nav>
     </header>
+
+<!-- ===================================
+        MAIN FORM AREA
+        =================================== -->
     <main>
         <h2> Game Catalogue 🎮</h2>
 
+        <!-- mini stats pills-->
         <section class="mini-stats">
             <span class="stat-pill">🎮 {{ stats.total }} Games in Catalogue</span>
             <span class="stat-pill">🕹️ {{stats.playing}} Games in Progess</span>
@@ -27,7 +36,7 @@
             <span class="stat-pill">🤍 {{ stats.wishlist }} Wishlist</span>
         </section>
 
-        <!--search form for filtering games-->
+        <!--search and filters form-->
         <form class="search-form" method="get" action="/catalogue">
             <input type="text" name="title" placeholder="Search by Title..." value="{{ request.args.get('title','') }}">
             <!-- platform dropdown-->
@@ -64,7 +73,7 @@
             <button type="submit">Search</button>
         </form>
 
-        <!--display the catalogue as a table-->
+        <!--catalogue table-->
         <table class="catalogue-table">
             <thead>
                 <tr>
@@ -96,11 +105,19 @@
             </tbody>
         </table>
     </main>
+
+<!-- ===================================
+        FOOTER
+        =================================== -->
     <footer>
-        <!-- footer with basic copyright information?-->
         <p>&copy; 2025 Cosy Console. All rights reserved.🧸</p>
     </footer>
+
+<!-- =======================================
+       SCRIPTS - DELETE GAME & BACK TO TOP
+       ======================================== -->  
     <script>
+        // delete game script
         document.addEventListener('DOMContentLoaded', function() {
             const deleteButtons = document.querySelectorAll('.delete-btn');
 
@@ -125,9 +142,9 @@
             });
         });
     </script>
-
     <button id="backToTop" class="back-to-top">Back to Top🤗</button>
     <script>
+        // back to top button script
         const backBtn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
           if (window.scrollY > 300) backBtn.classList.add('show');
