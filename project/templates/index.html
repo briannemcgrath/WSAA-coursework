@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Cosy Console - Home</title>
-    <!-- link to the external CSS file for basic styling-->
      <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
      <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}">
 </head>
 <body>
+
+<!-- ===================================
+        HEADER & NAVIGATION
+        =================================== -->
     <header>
-        <!-- main header for the homepage-->
          <img src="{{url_for('static', filename='image/banner.png')}}" alt="Cosy Console Banner" class="header-banner">
          <nav class="main-nav">
-            <!-- navigation links--> 
             <a href="/" class="{% if request.path == '/' %}active{% endif %}"> ☕ Home</a> |
             <a href="/catalogue" class="{% if 'catalogue' in request.path %}active{% endif %}"> 🎮 Catalogue</a> |
             <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}"> ➕ Add Game</a> |
@@ -21,19 +22,22 @@
          </nav>    
     </header>
 
+<!-- ===================================
+        MAIN CONTENT
+        =================================== -->    
     <main> 
-        <!-- welcome section on the homepage-->
+        <!-- introduction/welcome-->
         <section class="intro">
             <h2>Welcome to Cosy Console!</h2>
         <blockquote> "Your personal haven for all things gaming! Here you can relax, discover, and manage your game collection with ease. Grab a comfy seat, unwind, and let's play!" </blockquote>
         </section>
-
+        <!-- daily tip box-->
         <section class="daily-tip">
             <h3>💡 Important Gamer Tips 💡</h3>
             <p ic="tip">{{ tip }}</p>
         </section>
 
-        <!-- quick links section-->
+        <!-- quick links widgets-->
         <section class="quick-links">
             <a href="/catalogue" class="widget">
                 <div class="widget-img" 
@@ -67,37 +71,37 @@
             </div>
         </section>
         
-        <!-- chooses a random game to view details of-->
+        <!-- surprise me button-->
         <button id="randomBtn" class="random-game-btn">🎲 Surprise Me!</button>
         <div id="game-list">
         </div>
     </main>
 
+<!-- ===================================
+        FOOTER
+        =================================== -->    
     <footer>
-        <!-- footer with basic copyright information?-->
         <p>&copy; 2025 Cosy Console. All rights reserved. 🧸</p>
     </footer>
 
+<!-- ===================================
+       SCRIPTS
+       =================================== -->    
 <script> 
-    // function to fetch the game list and update the game grid 
+    // shuffled preview of eight games on load
     function refreshGameList() {
         fetch('/games')
             .then(response => response.json())
             .then(data => {
-                // get the game grid element
                 const gamegrid = document.querySelector('.game-grid');
-                // clear existing content
                 gamegrid.innerHTML = '';
-
-                // shuffle games shown in cards
                 const random = data
-                    .sort(() => Math.random() - 0.5)    //randomly reorder
-                    .slice(0,8);                        //pick first eight
+                    .sort(() => Math.random() - 0.5)    
+                    .slice(0,8);                       
 
                 random.forEach(game => {                
                     const card = document.createElement('div');
                     card.classList.add('game-card');
-                    // set inner HTML of card
                     card.innerHTML = `
                     <h4>${game.title}</h4>
                     <p><strong>Platform:</strong> ${game.platform}</p>
@@ -109,12 +113,11 @@
       })
       .catch(error => console.error('Error fetching games:', error));
   }
-
-  // automatically refresh the game list on page load
-  window.addEventListener('DOMContentLoaded', refreshGameList);
+  document.addEventListener('DOMContentLoaded', refreshGameList);
 </script>
 
 <script>
+    // surprise me button - picks a random game from full list 
     document.getElementById('randomBtn').addEventListener('click', () => {
       fetch('/games')
         .then(r => r.json())
@@ -125,7 +128,5 @@
         });
     });
   </script>
-
-
 </body>
 </html>
