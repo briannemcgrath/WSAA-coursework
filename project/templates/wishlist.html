@@ -7,6 +7,10 @@
     <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}">
 </head>
 <body>
+
+<!-- ===================================
+        HEADER & NAVIGATION
+        =================================== -->  
     <header>
         <h1>Cosy Console</h1>
         <nav class="main-nav">
@@ -17,6 +21,10 @@
             <a href="/by-genre" class="{% if 'by-genre' in request.path %}active{% endif %}"> 🎧 Games by Genre</a>
          </nav>
     </header>
+
+<!-- ===================================
+        MAIN CONTENT
+        =================================== -->      
     <main>
         <h2> Wishlist 🤍 </h2>
         <p>Games on Hold⏳ Paused on your backlog? These are the ones you'll dive into next!</p>
@@ -35,6 +43,9 @@
             <p>No games on your wishlist :( Go add some! </p>
         {% endif %}
     </main>
+<!-- ===================================
+        FOOTER
+        =================================== -->
     <footer>
         <p>&copy; 2025 Cosy Console. All rights reserved.🧸</p>
     </footer>

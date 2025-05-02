@@ -178,7 +178,7 @@ def update_game(game_id):
         game.rating = request.form.get('rating')
     
     db.session.commit()
-    return redirect(url_for('home'))
+    return redirect(url_for('catalogue'))
 
 @app.route('/games/<int:game_id>', methods=['DELETE'])
 def delete_game(game_id):

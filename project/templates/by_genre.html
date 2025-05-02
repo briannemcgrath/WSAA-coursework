@@ -84,14 +84,14 @@
 <!-- =======================================
        SCRIPTS - DELETE GAME & BACK TO TOP
        ======================================== -->  
+    <!-- delete script-->   
     <script>
-        // delete game script
         document.addEventListener('DOMContentLoaded', function() {
             const deleteButtons = document.querySelectorAll('.delete-btn');
 
             deleteButtons.forEach((button) => {
                 button.addEventListener('click', function() {
-                    if (confirm("Are you sure you want to delete this game? :(")) {
+                    if (confirm("Are you sure you want to delete this game? 😔")) {
                         const gameId = button.getAttribute('data-gameid');
                         fetch(`/games/${gameId}`, {
                             method: 'DELETE'
@@ -111,8 +111,8 @@
         });
     </script>
     <button id="backToTop" class="back-to-top">Back to Top🤗</button>
+    <!-- back to top script-->
     <script>
-        // back to top button script
         const backBtn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
           if (window.scrollY > 300) backBtn.classList.add('show');

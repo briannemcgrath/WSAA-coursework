@@ -68,7 +68,7 @@
         =================================== -->
     <script>
         document.getElementById('delete-btn').addEventListener('click', function() {
-            if (confirm("Are you sure you want to delete this game? :()")) {
+            if (confirm("Are you sure you want to delete this game? 😔")) {
                 fetch('/games/{{game.id}}', {method:'DELETE'})
                     .then(r => r.json())
                     .then(d => {alert(d.message); window.location.href = '/';})
