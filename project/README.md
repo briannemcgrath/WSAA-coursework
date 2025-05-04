@@ -1,4 +1,4 @@
-# Web Services & Applications Project - Cosy Console 
+# Web Services & Applications Project - Cosy Console 🎮
 
 This repository contains code and resources related to a project carried out for the Web Services & Applications module. 
 
@@ -34,7 +34,7 @@ Cosy Console aims to be more than just a database: it's a cosy corner of the int
 - AJAX integration for featured game cards. 
 - Responsive card layouts, dropdown filters, and star-rating widgets. 
 
-3 **Database Integration**
+3. **Database Integration**
 - SQLAlchemy ORM with a single `Game` model (id, title, platform, genre, status, description, rating)
 
 4. **Deployment Ready**
@@ -45,12 +45,13 @@ Cosy Console aims to be more than just a database: it's a cosy corner of the int
 1. Clone the repository.
 2. Create and activate a virtual environment. 
 3. Install dependencies 
+`pip install -r requirements.txt`
 4. Run the app. 
 5. Open http://127.0.0.1:5000 in your browser.
 
-## Next Steps: 
-
 ## Known Issues: 
+- **No User Authentication:** Currently everyone shares the same library; individual profiles would require login/session support. 
+- **Image Loading Errors:** If a widget image fails to load, there's no fallback thumbnail or alt-text style. 
 
 ## References: 
 
