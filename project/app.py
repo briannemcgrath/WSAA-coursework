@@ -12,10 +12,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #disable modification track
 
 
 db = SQLAlchemy(app)
-#create all tables if they don't exist
-@app.before_first_request
-def init_db():
-    db.create_all()
 
 # ---------------------------------------
 # Data Model
@@ -235,6 +231,9 @@ def delete_game(game_id):
     db.session.commit()
     return jsonify({'message': 'Game deleted successfully!'})
 
+#create tables as soon as module is imported 
+with app.app_context():
+    db.create_all()
 # ---------------------------------------
 # Run Server
 # --------------------------------------- 
