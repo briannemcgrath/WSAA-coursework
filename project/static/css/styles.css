@@ -662,7 +662,6 @@ margin: 0.5rem 0 0;
 @media (max-width: 600px) {
   .main-nav {
     display: flex;
-    flex-wrap: wrap;
     gap: 0.5em;
     font-size: 0.9rem;
   }
@@ -675,33 +674,5 @@ margin: 0.5rem 0 0;
   .mini-stats {
     flex-direction: column;
     gap: 0.75rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .game-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-    padding: 0 1rem;
-  }
-  .game-card {
-    width: auto;
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 600px) {
-  body {
-    font-size: 0.9rem;
-  }
-  .catalogue-table th,
-  .catalogue-table td {
-    padding: 8px;
-    font-size: 0.85rem;
-  }
-  .genre-nav {
-    overflow-x: auto;
-    padding: 0.5rem;
   }
 }
