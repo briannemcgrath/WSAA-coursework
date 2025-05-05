@@ -662,17 +662,63 @@ margin: 0.5rem 0 0;
 @media (max-width: 600px) {
   .main-nav {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5em;
     font-size: 0.9rem;
+    padding: 0.5rem 0;
   }
 
   .main-nav a {
-    flex: 1 1 100%;
+    flex: 1 1 45%;
     text-align: center;
+    margin: 0;
   }
 
   .mini-stats {
     flex-direction: column;
     gap: 0.75rem;
+  }
+
+  .catalogue-table,
+  .catalogue-table thead,
+  .catalogue-table tbody,
+  .catalogue-table th,
+  .catalogue-table td,
+  .catalogue-table tr {
+    display: block;                   
+  }
+
+  .catalogue-table thead {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .catalogue-table tr {
+    margin-bottom: 1rem;
+    border: 1px solid var(--muted);
+    border-radius: 8px;
+    padding: 0.5rem;
+  }
+
+  .catalogue-table td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+  }
+  .catalogue-table td::before {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.75rem;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: bold;
+    content: attr(data-label);   
+  }
+
+  .catalogue-table td,
+  .catalogue-table th {
+    padding: 0.5rem;
+    font-size: 0.9rem;
   }
 }

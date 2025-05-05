@@ -90,12 +90,12 @@
             <tbody>
                 {% for game in games %}
                 <tr>
-                    <td>{{game.title}}</td>
-                    <td>{{game.platform}}</td>
-                    <td>{{game.genre}}</td>
-                    <td>{{game.status}}</td>
-                    <td> <a href="/game/{{game.id}}">View Details</a> </td>
-                    <td>
+                    <td data-label="Title">{{game.title}}</td>
+                    <td data-label="Platform">{{game.platform}}</td>
+                    <td data-label="Genre">{{game.genre}}</td>
+                    <td data-label="Status">{{game.status}}</td>
+                    <td data-label="Details"> <a href="/game/{{game.id}}">View Details</a> </td>
+                    <td data-label="Delete">
                         <button class="btn delete-btn" data-gameid="{{game.id}}">Delete</button>
                     </td>
                 </tr>
