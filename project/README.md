@@ -100,6 +100,10 @@ Cosy Console aims to be more than just a database: it's a cosy corner of the int
 - Chart.js Bar Chart - Referenced for creating the "Most Popular Genre" bar chart on `analytics.html`. (https://www.chartjs.org/docs/latest/charts/bar.html)
 - Chart.ks Responsive Configuration - Used to enable `responsive:true` and `maintainAspectRatio:false`, so both charts resize seamlessly across devices. 
 
+**Render.com**
+- Flask `before_first_request` - Runs a function before the first HTTP request. (https://flask.palletsprojects.com/en/stable/api/#flask.Flask.before_first_request)
+- Deploying Flask on Gunicorn - (https://docs.gunicorn.org/en/stable/run.html#python-wsgi-application) 
+
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 
 
