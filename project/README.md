@@ -95,6 +95,11 @@ Cosy Console aims to be more than just a database: it's a cosy corner of the int
 - Active Page Highlight - Conditionally adding an `active` class to `<nav>` links based on `request.path`. (https://stackoverflow.com/questions/66427694/how-do-i-isolate-the-root-path-to-turn-on-and-off-its-active-class-on-the-navb )
 - Breadcrumb Navigation - Design patterns for breadcrumbs to show context. (https://www.w3schools.com/howto/howto_css_breadcrumbs.asp)
 
+**Data Visualisation**
+- Chart.js Doughnut Chart - Used to build the "Games by Status" doughnut (pie) chart on `analytics.html`. (https://www.chartjs.org/docs/latest/charts/doughnut.html)
+- Chart.js Bar Chart - Referenced for creating the "Most Popular Genre" bar chart on `analytics.html`. (https://www.chartjs.org/docs/latest/charts/bar.html)
+- Chart.ks Responsive Configuration - Used to enable `responsive:true` and `maintainAspectRatio:false`, so both charts resize seamlessly across devices. 
+
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 
 

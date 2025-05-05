@@ -129,6 +129,49 @@ def wishlist():
     games = Game.query.filter_by(status='Not Started').all()
     return render_template('wishlist.html', games=games) 
 
+@app.route('/analytics')
+def analytics():
+    #status breakdown
+    statuses = ['Not Started', 'In Progress', 'Complete']
+    status_counts = [Game.query.filter_by(status=s).count() for s in statuses]
+    #genre breakdown
+    genres = [ g[0] for g in db.session.query(Game.genre).distinct().filter(Game.genre != None) ]
+    genre_counts = { g: Game.query.filter_by(genre=g).count() for g in genres }
+    if genre_counts:
+        popular_genre, popular_count = max(genre_counts.items(), key=lambda item: item[1])
+    else:
+        popular_genre, popular_count = None, 0
+
+    #list and filter games; display summary stats
+    query = Game.query 
+    title = request.args.get('title', None)
+    platform = request.args.get('platform', None)
+    genre = request.args.get('genre', None)
+    status = request.args.get('status', None)
+
+    if title: 
+        query = query.filter(Game.title.ilike(f"%{title}%"))
+    if platform: 
+        query = query.filter(Game.platform.ilike(f"%{platform}%"))
+    if genre: 
+        query = query.filter(Game.genre.ilike(f"%{genre}%"))
+    if status: 
+        query = query.filter(Game.status.ilike(f"%{status}%"))
+    
+    games = query.all()
+    total = len(games)
+    completed = sum(1 for g in games if g.status == "Complete")
+    wishlist  = sum(1 for g in games if g.status == "Not Started")
+    playing = sum(1 for g in games if g.status == "In Progress")
+    pct_done  = int((completed/total)*100) if total else 0
+    stats={
+            'total':total, 
+            'playing': playing,
+            'completed_pct': pct_done,
+            'wishlist':wishlist
+    }
+    return render_template('analytics.html', labels=statuses, counts=status_counts, genre_counts=genre_counts, popular_genre=popular_genre, popular_count=popular_count, games=games, stats=stats)
+
 # --------------------------------
 # RESTFUL API Endpoints for Game
 # --------------------------------

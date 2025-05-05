@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cosy Console – Library Analytics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- ===================================
+        HEADER & NAVIGATION
+        =================================== -->
+    <header>
+        <h1>Cosy Console</h1>
+        <nav class="main-nav">
+            <a href="/" class="{% if request.path == '/' %}active{% endif %}"> ☕ Home</a> |
+            <a href="/catalogue" class="{% if 'catalogue' in request.path %}active{% endif %}">🎮 Catalogue</a> |
+            <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}"> ➕ Add Game</a> |
+            <a href="/wishlist"   class="{% if 'wishlist' in request.path %}active{% endif %}"> 🤍 Wishlist</a> |
+            <a href="/by-genre" class="{% if 'by-genre' in request.path %}active{% endif %}">🎧 Games by Genre</a> |
+            <a href="/analytics" class="{% if 'analytics' in request.path %}active{% endif %}">📊 Analytics</a>
+         </nav>
+    </header>
+
+<!-- ===================================
+        MAIN FORM AREA🔎
+        =================================== -->    
+  <main class="container text-center">
+  <h2>Your Library At a Glance🔎</h2>
+    
+    <!-- mini stats pills-->
+     <section class="mini-stats">
+        <span class="stat-pill">🎮 {{ stats.total }} Games in Catalogue</span>
+        <span class="stat-pill">🕹️ {{stats.playing}} Games in Progess</span>
+        <span class="stat-pill">✅ {{ stats.completed_pct }}% Complete</span>
+        <span class="stat-pill">🤍 {{ stats.wishlist }} Wishlist</span>
+    </section>
+
+  <!-- status pie chart -->
+  <section class="analytics-section">
+    <h3>Games by Status</h3>
+    <div class="chart-container small">
+      <canvas id="statusChart"></canvas>
+    </div>
+  </section>
+
+  <!-- genre bar chart -->
+  <section class="analytics-section">
+    <h3>Most Popular Genre: {{ popular_genre }}</h3>
+    <div class="chart-container medium">
+      <canvas id="genreChart"></canvas>
+    </div>
+  </section>
+</main>
+
+<!-- ===================================
+        FOOTER
+        =================================== -->  
+  <footer>
+    <p>&copy; 2025 Cosy Console. All rights reserved. 🧸</p>
+  </footer>
+
+<!-- =============
+       SCRIPTS 
+       =========== -->  
+  <!-- pie chart for statuses-->
+  <script>
+    const ctx = document.getElementById('statusChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: {{ labels|tojson }},
+        datasets: [{
+          data: {{ counts|tojson }},
+          backgroundColor: [
+            'rgba(255, 192, 203, 0.8)',   // pastel pink
+            'rgba(255, 228, 225, 0.8)',   // misty rose
+            'rgba(255, 182, 193, 0.8)'    // light pink
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { padding: 20 }
+          },
+        }
+      }
+    });
+  </script>
+
+  <!-- bar chart for genres-->
+  <script>
+    const genres      = {{ genre_counts.keys()|list|tojson }};
+    const genreCounts = {{ genre_counts.values()|list|tojson }};
+    const ctxGenre    = document.getElementById('genreChart').getContext('2d');
+
+    new Chart(ctxGenre, {
+      type: 'bar',
+      data: {
+        labels: genres,
+        datasets: [{
+          label: 'Game count',
+          data: genreCounts,
+          backgroundColor: 'rgba(255,192,203,0.7)',
+          borderColor:   'rgba(255,192,203,1)',
+          borderWidth: 1,
+          hoverBackgroundColor: 'rgba(255,192,203,1)'
+        }]
+      },
+      options: {
+        responsive: true, 
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { stepSize: 1 }
+          }
+        },
+        plugins: {
+          legend: { display: false },
+          title: {
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
