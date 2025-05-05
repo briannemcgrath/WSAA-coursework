@@ -65,34 +65,34 @@
        SCRIPTS 
        =========== -->  
   <!-- pie chart for statuses-->
-  <script>
-    const ctx = document.getElementById('statusChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: {{ labels|tojson }},
-        datasets: [{
-          data: {{ counts|tojson }},
-          backgroundColor: [
-            'rgba(255, 192, 203, 0.8)',   // pastel pink
-            'rgba(255, 228, 225, 0.8)',   // misty rose
-            'rgba(255, 182, 193, 0.8)'    // light pink
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: { padding: 20 }
-          },
+     <script>
+        const ctx = document.getElementById('statusChart').getContext('2d');
+        new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: {{ labels|tojson }},
+            datasets: [{
+            data: {{ counts|tojson }},
+            backgroundColor: [
+                'rgba(255, 192, 203, 0.8)',   // pastel pink
+                'rgba(255, 228, 225, 0.8)',   // misty rose
+                'rgba(255, 182, 193, 0.8)'    // light pink
+            ],
+            borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+            legend: {
+                position: 'bottom',
+                labels: { padding: 20 }
+            },
+            }
         }
-      }
-    });
-  </script>
+        });
+    </script>
 
   <!-- bar chart for genres-->
   <script>
