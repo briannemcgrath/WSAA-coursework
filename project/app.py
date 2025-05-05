@@ -2,6 +2,70 @@ from flask import Flask, render_template, request, jsonify, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import random 
 
+# ---------------------------------------
+# Initial Games 
+# ---------------------------------------
+
+initial_games = [
+    {
+      "title": "Red Dead Redemption 2",
+      "platform": "PS5",
+      "genre": "Action",
+      "status": "Complete",
+      "description": "Explore the wilds of Hyrule in this open-world classic.",
+      "rating": 5.0
+    },
+    {
+      "title": "Bear & Breakfast",
+      "platform": "PC",
+      "genre": "Simulation",
+      "status": "Complete",
+      "description": "Laid-back management adventure game where you build and run a B&B... but you're a bear ᵔᴥᵔ",
+      "rating": 5.0
+    },
+    {
+      "title": "Stardew Valley",
+      "platform": "PC",
+      "genre": "Simulation",
+      "status": "Complete",
+      "description": "Build your farm, befriend the townsfolk, and dig into the mines.",
+      "rating": 5.0
+    },
+    {
+      "title": "Hell Divers 2",
+      "platform": "PS5",
+      "genre": "Shooter",
+      "status": "In Progress",
+      "description": "Third person squad-based shooter that sees the elite forces of the Helldivers battling to win an intergalactic struggle to rid the galaxy of risen alien threats! For Liberty!!! ",
+      "rating": 4.0
+    },
+    {
+      "title": "The Sims 4",
+      "platform": "PC",
+      "genre": "Simulation",
+      "status": "In Progress",
+      "description": "Life Simulator - Susu!",
+      "rating": 5.0
+    },
+    {
+      "title": "Diablo IV",
+      "platform": "PC",
+      "genre": "Strategy",
+      "status": "Complete",
+      "description": "Dungeon crawling game slaying enemies, very cool. ",
+      "rating": 3.0
+    },
+     {
+      "title": "Fortnite",
+      "platform": "PS5",
+      "genre": "PvP",
+      "status": "In Progress",
+      "description": "Sabrina Carpenter was added so I'm back playing - no build mode always! ",
+      "rating": 4.0
+    },
+
+]
+
 app = Flask(__name__)
 
 # ---------------------------------------
@@ -231,9 +295,22 @@ def delete_game(game_id):
     db.session.commit()
     return jsonify({'message': 'Game deleted successfully!'})
 
-#create tables as soon as module is imported 
+#create tables as soon as module is imported & adding starter games 
 with app.app_context():
     db.create_all()
+
+    if Game.query.count() == 0:
+        for g in initial_games:
+            game = Game(
+                title=g["title"],
+                platform=g["platform"],
+                genre=g["genre"],
+                status=g["status"],
+                description=g["description"],
+                rating=g["rating"]
+            )
+            db.session.add(game)
+        db.session.commit()
 # ---------------------------------------
 # Run Server
 # --------------------------------------- 
