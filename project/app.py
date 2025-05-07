@@ -12,7 +12,7 @@ initial_games = [
       "platform": "PS5",
       "genre": "Action",
       "status": "Complete",
-      "description": "Explore the wilds of Hyrule in this open-world classic.",
+      "description": "Action Adventure following Arthur Morgan and the Van Der Linde gang. Don't play past chapter five :)",
       "rating": 5.0
     },
     {
@@ -58,7 +58,7 @@ initial_games = [
      {
       "title": "Fortnite",
       "platform": "PS5",
-      "genre": "PvP",
+      "genre": "PVP",
       "status": "In Progress",
       "description": "Sabrina Carpenter was added so I'm back playing - no build mode always! ",
       "rating": 4.0
@@ -124,8 +124,10 @@ def home():
     #render the homepage with a random tip and featured games
     games=Game.query.all()
     tip = random.choice(daily_tips)
-    featured = games[:10]   
-    return render_template('index.html', games=featured, tip=tip)
+    featured = games[:10]
+    wishlist_gs = Game.query.filter_by(status="Not Started").all()
+    wishlist_games = [g.to_dict() for g in wishlist_gs]
+    return render_template('index.html', games=featured, tip=tip, wishlist=wishlist_games)
 
 @app.route('/game/<int:game_id>')
 def game_detail_view(game_id):
