@@ -2,6 +2,14 @@
 
 This repository contains code and resources related to a project carried out for the Web Services & Applications module. 
 
+## Live Demo
+
+Cosy Console is deployed on Render. You can explore the live site here: 
+
+🌐 **https://cosy-console.onrender.com/**
+
+Changes pushed to `main` automatically rebuild and deploy. Note that on Render's Starter tier any data you add - new games, rating, descriptions, etc. - will be lost every time you push a new commit or the service automatically deploys. The site will always "reset" back to its base seed library on each deploy. 
+
 ## Project Overview: 
 
 **Cosy Console** is a personal game library management web application designed to give gamers a cosy, intuitive experience for tracking their entire collection in one central place. Built with Flask on the server side and SQLite as the local database, Cosy Console also delivers: 
@@ -14,13 +22,16 @@ This repository contains code and resources related to a project carried out for
 1. **CRUD Operations:** Users can add new games, view details in a dedicated card view, update game metadata(title, platform, genre, play status, descriptions, and ratings), and delete entries when they're no longer relevant. 
 2. **Search & Filter:** The catalogue page offers drop-down filters for platform, genre, and play status, allowing quick narrowing of large libraries to find exactly the games you want to play or revisit. 
 3. **Star Rating System:** Beyond simple numerical scores, games can be rated via an intutitive 1-5 Star widget, visually reflecting enjoyment levels. 
-4. **Quick Access Wdigets:** Homepage widgets like "All Games", "By Genre", and "Wishlist" provide one-click access to key views, encouraging exploration and discovery. 
+4. **Quick Access Widgets:** Homepage widgets like "All Games", "By Genre", and "Wishlist" provide one-click access to key views, encouraging exploration and discovery. 
+5. **Analytics Dashboard:** Users can take a look at some stats on their games in the catalogue - Doughnut Chart (Games by Status) and Bar Chart (Most Popular Genre). 
+6. **Daily Tips & Random Picks:** Rotating gamer tips each visit and a "Surprise Me" button at the bottom of the homepage pulls from the wishlist to spark that next session.  
 
 ## Vision & Roadmap: 
 - **Personalised Profiles** Future support for user authentication will enable multiple gamers on one instance to maintain private libraries. 
 - **Community Features** Plans for game reviews, comments, and social sharing so players can recommend titles to friends. 
 - **Data Integration** Potential integration with external APIs (e.g., IGDB, RAWG) to automatically fetch cover art, release dates, and genre tags. 
-- **Analytics Dashboard** Visual charts and progress trackers to monitor play time, completion rates, and wish-list growth over time. 
+- **Deeper Analytics** Progress trackers to monitor play time, and wish-list growth over time. 
+- **Database Integration:** Migrate from SQLite to a managed PostgreSQL (or MySQL) add-on to avoid issues with database "resetting" when redeployed on Render. Or alternatively use the paid service on Render to allow changes to be saved on redeploy. 
 
 Cosy Console aims to be more than just a database: it's a cosy corner of the internet where gamers can unwind, organise, and celebrate their passion for games - all in one place. 
 
@@ -43,15 +54,17 @@ Cosy Console aims to be more than just a database: it's a cosy corner of the int
 
 ## Prerequisities/How to Run: 
 1. Clone the repository.
-2. Create and activate a virtual environment. 
+2. Create and activate a virtual environment.
 3. Install dependencies 
 `pip install -r requirements.txt`
 4. Run the app. 
+`python app.py`
 5. Open http://127.0.0.1:5000 in your browser.
 
 ## Known Issues: 
-- **No User Authentication:** Currently everyone shares the same library; individual profiles would require login/session support. 
+- **No User Authentication:** Currently, everyone shares the same library; individual profiles would require login/session support. 
 - **Image Loading Errors:** If a widget image fails to load, there's no fallback thumbnail or alt-text style. 
+- **Library Reset - Render:** Render's file system is wiped on each redeploy, so custom game entries don't persist. 
 
 ## References: 
 
