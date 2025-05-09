@@ -313,7 +313,23 @@ with app.app_context():
             )
             db.session.add(game)
         db.session.commit()
+
 # ---------------------------------------
+# Friendly Error Pages
+# ---------------------------------------
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html',
+        title="Opps! Page Not Found!", 
+        message ="We couldn't find that page!"), 404
+
+@app.errorhandler(500)
+def internal_error(e):
+    return render_template('500.html', 
+        title="Uh-oh, Internal Server Error",
+        message="Our dungeon got a little too dark. We're on it!🔧"), 500
+        
+# --------------------------------------
 # Run Server
 # --------------------------------------- 
 if __name__ == '__main__':
