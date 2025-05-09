@@ -29,13 +29,13 @@ Changes pushed to `main` automatically rebuild and deploy. Note that on Render's
 ## Vision & Roadmap: 
 - **Personalised Profiles** Future support for user authentication will enable multiple gamers on one instance to maintain private libraries. 
 - **Community Features** Plans for game reviews, comments, and social sharing so players can recommend titles to friends. 
-- **Data Integration** Potential integration with external APIs (e.g., IGDB, RAWG) to automatically fetch cover art, release dates, and genre tags. 
+- **API Integration** Potential integration with external APIs (e.g., IGDB, RAWG) to automatically fetch cover art, release dates, and genre tags. 
 - **Deeper Analytics** Progress trackers to monitor play time, and wish-list growth over time. 
-- **Database Integration:** Migrate from SQLite to a managed PostgreSQL (or MySQL) add-on to avoid issues with database "resetting" when redeployed on Render. Or alternatively use the paid service on Render to allow changes to be saved on redeploy. 
+- **Database Integration:** Migrate to a managed PostgreSQL (or MySQL) add-on to avoid issues with database "resetting" when redeployed on Render. Or alternatively use the paid service on Render to allow changes to be saved on redeploy. 
 
 Cosy Console aims to be more than just a database: it's a cosy corner of the internet where gamers can unwind, organise, and celebrate their passion for games - all in one place. 
 
-# Key Features: 
+## Key Features: 
 1. **RESTful API**
 - `GET /games` & `GET /games/<id>` - retrieve game list or details. 
 - `POST /games`, `PUT /game/<id>`, `DELETE /games/<id>` - manage game entries via JSON or form. 
@@ -115,6 +115,9 @@ Cosy Console aims to be more than just a database: it's a cosy corner of the int
 
 **Render.com**
 - Deploying Flask on Gunicorn - (https://docs.gunicorn.org/en/stable/run.html#python-wsgi-application) 
+
+**Error Handling**
+- Flask Error Handlers - Used to register and render customer error pages via @app.errorhandler decorators. (https://flask.palletsprojects.com/en/latest/errorhandling/#error-handlers)
 
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 
