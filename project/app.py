@@ -52,7 +52,7 @@ initial_games = [
       "platform": "PC",
       "genre": "Strategy",
       "status": "Complete",
-      "description": "Dungeon crawling game slaying enemies, very cool. ",
+      "description": "Dungeon crawling game slaying enemies! ",
       "rating": 3.0
     },
      {
@@ -63,7 +63,22 @@ initial_games = [
       "description": "Sabrina Carpenter was added so I'm back playing - no build mode always! ",
       "rating": 4.0
     },
-
+      {
+      "title": "Elder Scrolls IV: Oblivion (Remaster) ",
+      "platform": "PS5",
+      "genre": "RPG",
+      "status": "Not Started",
+      "description": "Bethesda shadow dropping Oblivion Remaster two weeks before all my assignments are due?? ",
+      "rating": 5.0
+    },
+      {
+      "title": "Ghost of Yōtei",
+      "platform": "PS5",
+      "genre": "Action",
+      "status": "Not Started",
+      "description": "Sequel to Ghost of Tsushima - releasing in October ",
+      "rating": 4.0
+    },
 ]
 
 app = Flask(__name__)
@@ -328,7 +343,7 @@ def internal_error(e):
     return render_template('500.html', 
         title="Uh-oh, Internal Server Error",
         message="Our dungeon got a little too dark. We're on it!🔧"), 500
-        
+
 # --------------------------------------
 # Run Server
 # --------------------------------------- 
