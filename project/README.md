@@ -2,14 +2,6 @@
 
 This repository contains code and resources related to a project carried out for the Web Services & Applications module. 
 
-## Live Demo
-
-Cosy Console is deployed on Render. You can explore the live site here: 
-
-🌐 **https://cosy-console.onrender.com/**
-
-Changes pushed to `main` automatically rebuild and deploy. Note that on Render's Starter tier any data you add - new games, rating, descriptions, etc. - will be lost every time you push a new commit or the service automatically deploys. The site will always "reset" back to its base seed library on each deploy. 
-
 ## Project Overview: 
 
 **Cosy Console** is a personal game library management web application designed to give gamers a cosy, intuitive experience for tracking their entire collection in one central place. Built with Flask on the server side and SQLite as the local database, Cosy Console also delivers: 
@@ -17,6 +9,14 @@ Changes pushed to `main` automatically rebuild and deploy. Note that on Render's
 - A **clean and modern UI**, with a pastel-inspired color scheme and card layouts that feel both playful and profressional. 
 - A **responsive dsign** that works seamlessly on desktop, tablet and mobile devices, employing CSS Flexbox and Grid for dynamic layouts. 
 - **Interactive features** such as AJAX-powered featured cards on the homepage and dropdown filters that update results without full page reloads. 
+
+## Live Demo
+
+Cosy Console is deployed on Render. You can explore the live site here: 
+
+🌐 **https://cosy-console.onrender.com/**
+
+Changes pushed to `main` automatically rebuild and deploy. Note that on Render's Starter tier any data you add - new games, rating, descriptions, etc. - will be lost every time you push a new commit or the service automatically deploys. The site will always "reset" back to its base seed library on each deploy. 
 
 ## Core Functionality:
 1. **CRUD Operations:** Users can add new games, view details in a dedicated card view, update game metadata(title, platform, genre, play status, descriptions, and ratings), and delete entries when they're no longer relevant. 

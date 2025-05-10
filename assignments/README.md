@@ -30,10 +30,10 @@ Dependencies: `requests`, `json`.
 File: [Github Script File](assignment04-github.py)
 
 This script: 
-- Authenticates to GitHub using our tokem from `config.py`.
+- Authenticates to GitHub using our token from `config.py`.
 - Lists repository contents to confirm file path. 
 - Retrieves `assignments/assignments04-andrew.txt`. 
-- Replaces all instances of "Andrew! with "Bree". 
+- Replaces all instances of "Andrew with "Bree". 
 - Commits and pushes the changes back to the repository. 
 
 #### Usage: 
