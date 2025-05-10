@@ -103,6 +103,7 @@ class Game(db.Model):
     status = db.Column(db.String(50)) 
     description = db.Column(db.Text) 
     rating = db.Column(db.Float) 
+    # TODO: link games to users :) 
 
     def to_dict(self):
         #convert model instance to dictionary for JSON response
@@ -253,6 +254,9 @@ def analytics():
     }
     return render_template('analytics.html', labels=statuses, counts=status_counts, genre_counts=genre_counts, popular_genre=popular_genre, popular_count=popular_count, games=games, stats=stats)
 
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
 # --------------------------------
 # RESTFUL API Endpoints for Game
 # --------------------------------

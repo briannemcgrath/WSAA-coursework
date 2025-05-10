@@ -20,7 +20,9 @@
             <a href="/game/new" class="{% if 'game/new' in request.path %}active{% endif %}"> ➕ Add Game</a> |
             <a href="/wishlist"   class="{% if 'wishlist' in request.path %}active{% endif %}"> 🤍 Wishlist</a> |
             <a href="/by-genre" class="{% if 'by-genre' in request.path %}active{% endif %}"> 🎧 Games by Genre</a> |
-            <a href="/analytics" class="{% if 'analytics' in request.path %}active{% endif %}">📊 Analytics</a>
+            <a href="/analytics" class="{% if 'analytics' in request.path %}active{% endif %}">📊 Analytics</a> |
+            <!-- placeholder for future profile/auth-->
+            <a href="/profile" class="{% if request.path == '/profile' %}active{% endif %}">👤 Profile </a>
          </nav>    
     </header>
 
