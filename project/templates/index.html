@@ -43,16 +43,19 @@
         <section class="quick-links">
             <a href="/catalogue" class="widget">
                 <div class="widget-img" 
+                aria-label="All Games"
                 style="background-image:url('{{ url_for('static', filename='image/allgames.png') }}')"></div>
                 <h4>All Games</h4>
             </a>
                 <a href="/by-genre" class="widget">
-                <div class="widget-img" 
+                <div class="widget-img"
+                aria-label="View Games by Genre" 
                 style="background-image:url('{{ url_for('static', filename='image/bygenre.png') }}')"></div>
                 <h4>By Genre</h4>
             </a>
                 <a href="/wishlist" class="widget">
                 <div class="widget-img" 
+                aria-label="Wishlist Games"
                 style="background-image:url('{{ url_for('static', filename='image/wishlist.png') }}')"></div>
                 <h4>Wishlist</h4>
             </a>

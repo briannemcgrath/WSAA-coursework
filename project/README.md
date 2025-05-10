@@ -114,10 +114,11 @@ Cosy Console aims to be more than just a database: it's a cosy corner of the int
 - Chart.ks Responsive Configuration - Used to enable `responsive:true` and `maintainAspectRatio:false`, so both charts resize seamlessly across devices. 
 
 **Render.com**
-- Deploying Flask on Gunicorn - (https://docs.gunicorn.org/en/stable/run.html#python-wsgi-application) 
+- Deploying Flask on Gunicorn - Information on how to deploy app on Render.com. (https://docs.gunicorn.org/en/stable/run.html#python-wsgi-application) 
 
-**Error Handling**
+**Error Handling & Accessibility**
 - Flask Error Handlers - Used to register and render customer error pages via @app.errorhandler decorators. (https://flask.palletsprojects.com/en/latest/errorhandling/#error-handlers)
+- Aria Labels - Used to add alternative text to widgets on `index.html`. (https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
 
 ## Acknowledgements: 
 This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 
