@@ -63,7 +63,6 @@ Cosy Console aims to be more than just a database: it's a cosy corner of the int
 
 ## Known Issues: 
 - **No User Authentication:** Currently, everyone shares the same library; individual profiles would require login/session support. 
-- **Image Loading Errors:** If a widget image fails to load, there's no fallback thumbnail or alt-text style. 
 - **Library Reset - Render:** Render's file system is wiped on each redeploy, so custom game entries don't persist. 
 
 ## References: 
