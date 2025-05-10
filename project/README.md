@@ -120,6 +120,6 @@ Cosy Console aims to be more than just a database: it's a cosy corner of the int
 - Aria Labels - Used to add alternative text to widgets on `index.html`. (https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
 
 ## Acknowledgements: 
-This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. Special thanks to lecturer Andrew Beatty for guidance and support. 
+This repository was developed as part of coursework for the Higher Diploma in Science in Computing in Data Analytics with Atlantic Technological University. All illusratations and graphics on this site were custom-designed by myself using Canva 🎨. Special thanks to lecturer Andrew Beatty for guidance and support. 
 
 **by Brianne McGrath**
